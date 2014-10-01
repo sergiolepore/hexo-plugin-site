@@ -30,4 +30,12 @@ var faAssets = pickFiles('bower_components/font-awesome/fonts', {
 });
 app.import('bower_components/font-awesome/css/font-awesome.css');
 
-module.exports = mergeTrees([app.toTree(), faAssets]);
+// Twitter Bootstrap
+var tbAssets = pickFiles('bower_components/bootstrap/dist/fonts', {
+  srcDir: '/',
+  files: ['**/*'],
+  destDir: 'fonts'
+});
+app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+
+module.exports = mergeTrees([app.toTree(), faAssets, tbAssets]);

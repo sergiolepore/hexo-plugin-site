@@ -27,6 +27,11 @@
     "ember-cli-qunit": "0.1.0",
     "ember-data": "1.0.0-beta.10",
     "express": "^4.8.5",
-    "glob": "^4.0.5"
+    "glob": "^4.0.5",
+    "stylus": "^0.49.1",
+    "broccoli-stylus-single": "^0.3.0",
+    "ember-cli-font-awesome": "0.0.4",
+    "broccoli-merge-trees": "^0.1.4",
+    "broccoli-static-compiler": "^0.1.4"
   }
 }

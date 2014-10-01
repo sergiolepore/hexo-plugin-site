@@ -16,6 +16,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      apiHost: 'http://localhost:1337'
     }
   };
 
@@ -40,7 +41,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.apiHost = 'http://api.hexo-plugins.com';
   }
 
   return ENV;

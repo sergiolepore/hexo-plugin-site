@@ -1,12 +1,13 @@
 /* global require, module */
-
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var mergeTrees = require('broccoli-merge-trees');
 var pickFiles = require('broccoli-static-compiler');
 
 var app = new EmberApp({
   // we will manage the assets via Bower
-  emberCliFontAwesome: { includeFontAwesomeAssets: false }
+  emberCliFontAwesome: {
+    includeFontAwesomeAssets: false
+  }  
 });
 
 // Use `app.import` to add additional libraries to the generated
@@ -37,5 +38,22 @@ var tbAssets = pickFiles('bower_components/bootstrap/dist/fonts', {
   destDir: 'fonts'
 });
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+app.import('bower_components/bootstrap/dist/css/bootstrap.css.map', {
+  destDir: 'assets'
+});
+app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+
+// Stylish side menu
+app.import('bower_components/metisMenu/dist/metisMenu.css');
+app.import('bower_components/metisMenu/dist/metisMenu.js');
+
+// Charts.
+// IMPORTANT: there's a temporary fix on raphael.js. Read the first comment on the file.
+app.import('bower_components/morris.js/morris.css');
+app.import('vendor/temporary-fixes/raphael.js');
+app.import('bower_components/morris.js/morris.js');
+
+// temporal patches with jquery. Only for test, will later be moved to a component
+app.import('vendor/jq-temp.js');
 
 module.exports = mergeTrees([app.toTree(), faAssets, tbAssets]);

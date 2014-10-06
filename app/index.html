@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Sergio Lepore">
 
-    {{BASE_TAG}}
+    {{content-for 'head'}}
 
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/hexo-plugin-site.css">
@@ -20,15 +20,7 @@
     <![endif]-->
   </head>
   <body>
-    <script>
-      window.EmberENV = {{EMBER_ENV}};
-    </script>
-    <!-- Workaround for livereload. See http://stackoverflow.com/a/26051995 -->
-    <script src="http://localhost:35729/livereload.js?snipver=1" type="text/javascript"></script>
     <script src="assets/vendor.js"></script>
     <script src="assets/hexo-plugin-site.js"></script>
-    <script>
-      window.HexoPluginSite = require('hexo-plugin-site/app')['default'].create({{APP_CONFIG}});
-    </script>
   </body>
 </html>

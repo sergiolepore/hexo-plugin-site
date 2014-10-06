@@ -55,7 +55,7 @@
         <ul class="nav" id="side-menu">
           {{#if isNotIndex}}
             <li class="sidebar-search">
-              {{search-box}}
+              {{search-box query=searchQuery action="searchTransition"}}
             </li>
           {{/if}}
           <li>

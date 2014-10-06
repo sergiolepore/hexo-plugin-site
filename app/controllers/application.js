@@ -3,6 +3,8 @@ import ENV from 'hexo-plugin-site/config/environment';
 import semver from 'semver';
 
 var ApplicationController = Ember.Controller.extend({
+  // we need to get the search query here, for the search box on the sidebar
+  needs: ['search'],
 
   version: function() {
     return ENV.APP.version;
@@ -25,6 +27,10 @@ var ApplicationController = Ember.Controller.extend({
 
     return semver.gte(version, '1.0.0');
   }.property(),
+
+  searchQuery: function() {
+    return this.get('controllers.search.searchQuery');
+  }.property('controllers.search.searchQuery'),
 
   isSignedIn: false,
 });

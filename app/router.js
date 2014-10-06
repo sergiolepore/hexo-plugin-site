@@ -16,6 +16,7 @@ Router.map(function() {
     this.route('updated');
     this.route('popular');
   });
+  this.route('search', { path: '/search/:query' });
 });
 
 export default Router;

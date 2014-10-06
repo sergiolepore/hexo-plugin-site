@@ -7,7 +7,7 @@ var app = new EmberApp({
   // we will manage the assets via Bower
   emberCliFontAwesome: {
     includeFontAwesomeAssets: false
-  }  
+  }
 });
 
 // Use `app.import` to add additional libraries to the generated
@@ -55,5 +55,18 @@ app.import('bower_components/morris.js/morris.js');
 
 // temporal patches with jquery. Only for test, will later be moved to a component
 app.import('vendor/jq-temp.js');
+
+// handlebars helpers
+// WILL BE DISABLED, for now
+// app.import('bower_components/swag/lib/swag.js', {
+//   exports: {
+//     'swag': [
+//       'default'
+//     ]
+//   }
+// });
+
+// Support for non-AMD libs
+app.import('vendor/custom-plugins/amdize.js');
 
 module.exports = mergeTrees([app.toTree(), faAssets, tbAssets]);

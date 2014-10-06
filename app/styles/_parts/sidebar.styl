@@ -1,0 +1,51 @@
+sidebar-nav-border =
+  border-bottom 0!important
+
+.sidebar
+  .sidebar-nav
+    &.navbar-collapse
+      padding-right 0
+      padding-left 0
+
+  .sidebar-search
+    padding 15px
+
+  ul
+    li
+      border-bottom 1px solid color-border-main
+      a
+        &.active
+          background-color color-link-1
+
+  .arrow
+    float right
+
+  .fa
+    &.arrow
+      &:before
+        content "\f104" /*replace with fa classes */
+
+  .active
+    >a
+      >.fa
+        &.arrow
+          &:before
+            content "\f107" /*replace with fa classes */
+
+  .nav-second-level
+    li
+      {sidebar-nav-border}
+      a
+        padding-left 37px
+
+  .nav-third-level
+    li
+      {sidebar-nav-border}
+      a
+        padding-left 52px
+
+  @media screen and (min-width: media-min-width)
+    z-index 1
+    position absolute
+    width 200px
+    margin-top 51px

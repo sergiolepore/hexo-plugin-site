@@ -16,6 +16,7 @@
     "font-awesome": "~4.2.0",
     "bootstrap": "~3.2.0",
     "metisMenu": "~1.1.2",
-    "morris.js": "~0.5.1"
+    "morris.js": "~0.5.1",
+    "swag": "~0.7.0"
   }
 }

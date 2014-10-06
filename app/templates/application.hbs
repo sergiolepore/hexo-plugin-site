@@ -1,3 +1,109 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<div id="wrapper" {{bindAttr class="pageClass"}}>
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{#if isNotIndex}}
+        {{#link-to 'index' class='navbar-brand'}}
+          HEXO PLUGIN MANAGER
+        {{/link-to}}
+      {{/if}}
+    </div>
+    <!-- /.navbar-header -->
+    <ul class="nav navbar-top-links navbar-right">
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-user">
+          {{#if isSignedIn}}
+            <li>
+              <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+            </li>
+          {{else}}
+            <li>
+              <a href="login.html"><i class="fa fa-sign-in fa-fw"></i> Login</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="login.html"><i class="fa fa-check-square-o fa-fw"></i> Register</a>
+            </li>
+          {{/if}}
+        </ul>
+        <!-- /.dropdown-user -->
+      </li>
+      <!-- /.dropdown -->
+    </ul>
+    <!-- /.navbar-top-links -->
+    <div class="navbar-default sidebar" role="navigation">
+      <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+          {{#if isNotIndex}}
+            <li class="sidebar-search">
+              {{search-box}}
+            </li>
+          {{/if}}
+          <li>
+            {{#link-to "installation"}}<i class="fa fa-download fa-fw"></i> Installation{{/link-to}}
+          </li>
+          <li>
+              <a href="#"><i class="fa fa-plug fa-fw"></i> Plugins<span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level">
+                  <li>
+                      {{#link-to "plugins.trending"}}Trending{{/link-to}}
+                  </li>
+                  <li>
+                      {{#link-to "plugins.new"}}New{{/link-to}}
+                  </li>
+                  <li>
+                      {{#link-to "plugins.updated"}}Updated{{/link-to}}
+                  </li>
+                  <li>
+                      {{#link-to "plugins.popular"}}Popular{{/link-to}}
+                  </li>
+              </ul>
+              <!-- /.nav-second-level -->
+          </li>
+          <li>
+            {{#link-to "docs"}}<i class="fa fa-book fa-fw"></i> Docs{{/link-to}}
+          </li>
+          <li>
+            {{#link-to "news"}}<i class="fa fa-newspaper-o fa-fw"></i> News{{/link-to}}
+          </li>
+          <li>
+            {{#link-to "about"}}<i class="fa fa-question-circle fa-fw"></i> About{{/link-to}}
+          </li>
+        </ul>
+      </div>
+      <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+  </nav>
 
-{{outlet}}
+  <div id="page-wrapper">
+    {{outlet}}
+  </div>
+  <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<script>
+$(function() {
+
+  $('#side-menu').metisMenu();
+
+});
+</script>

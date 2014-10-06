@@ -10,4 +10,13 @@
       'default': Swag
     };
   });
+
+  /* global define semver */
+  define('semver', [], function() {
+    'use strict';
+
+    return {
+      'default': semver
+    }
+  });
 })();

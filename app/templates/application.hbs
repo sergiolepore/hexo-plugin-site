@@ -49,6 +49,9 @@
     <!-- /.navbar-top-links -->
     <div class="navbar-default sidebar" role="navigation">
       <div class="sidebar-nav navbar-collapse">
+        <div {{bindAttr class=":ribbon isStable:stable:unstable"}}>
+          <span>{{version}}</span>
+        </div>
         <ul class="nav" id="side-menu">
           {{#if isNotIndex}}
             <li class="sidebar-search">

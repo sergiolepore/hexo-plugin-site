@@ -66,6 +66,14 @@ app.import('vendor/jq-temp.js');
 //   }
 // });
 
+app.import('vendor/semver.js', {
+  exports: {
+    'semver': [
+      'default'
+    ]
+  }
+});
+
 // Support for non-AMD libs
 app.import('vendor/custom-plugins/amdize.js');
 

@@ -44,6 +44,27 @@ sidebar-nav-border =
       a
         padding-left 52px
 
+  .ribbon
+    background-color
+    overflow hidden
+    white-space nowrap
+    span
+      border 1px solid
+      color #fff
+      display block
+      padding 10px 50px
+      text-align center
+
+    &.unstable
+      background-color color-ribbon-unstable-back
+      span
+        border 1px solid color-ribbon-unstable-inner
+
+    &.stable
+      background-color color-ribbon-stable-back
+      span
+        border 1px solid color-ribbon-stable-inner
+
   @media screen and (min-width: media-min-width)
     z-index 1
     position absolute

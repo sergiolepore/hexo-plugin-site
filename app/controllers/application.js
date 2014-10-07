@@ -19,7 +19,7 @@ var ApplicationController = Ember.Controller.extend({
   }.property('isIndex'),
 
   pageClass: function() {
-    return this.get('currentRouteName').replace(/\//g, '-');
+    return this.get('currentRouteName').replace(/\./g, '-');
   }.property('currentRouteName'),
 
   isStable: function() {

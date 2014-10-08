@@ -8,6 +8,11 @@
 <div class="row search-row">
   <div class="col-lg-4"></div>
   <div class="col-lg-4 text-center">
+    {{!--
+      the search action when the user presses the button or ENTER will be
+      handled by the "searchTransition" action declared on the application
+      controller.
+    --}}
     {{search-box action="searchTransition"}}
   </div>
   <div class="col-lg-4"></div>

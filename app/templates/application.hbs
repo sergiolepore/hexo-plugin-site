@@ -47,52 +47,8 @@
       <!-- /.dropdown -->
     </ul>
     <!-- /.navbar-top-links -->
-    <div class="navbar-default sidebar" role="navigation">
-      <div class="sidebar-nav navbar-collapse">
-        <div {{bind-attr class=":ribbon isStable:stable:unstable"}}>
-          <span>{{version}}</span>
-        </div>
-        <ul class="nav" id="side-menu">
-          {{#if isNotIndex}}
-            <li class="sidebar-search">
-              {{search-box query=searchQuery action="searchTransition"}}
-            </li>
-          {{/if}}
-          <li>
-            {{#link-to "installation"}}<i class="fa fa-download fa-fw"></i> Installation{{/link-to}}
-          </li>
-          <li>
-              <a href="#"><i class="fa fa-plug fa-fw"></i> Plugins<span class="fa arrow"></span></a>
-              <ul class="nav nav-second-level">
-                  <li>
-                      {{#link-to "plugins.trending"}}Trending{{/link-to}}
-                  </li>
-                  <li>
-                      {{#link-to "plugins.new"}}New{{/link-to}}
-                  </li>
-                  <li>
-                      {{#link-to "plugins.updated"}}Updated{{/link-to}}
-                  </li>
-                  <li>
-                      {{#link-to "plugins.popular"}}Popular{{/link-to}}
-                  </li>
-              </ul>
-              <!-- /.nav-second-level -->
-          </li>
-          <li>
-            {{#link-to "docs"}}<i class="fa fa-book fa-fw"></i> Docs{{/link-to}}
-          </li>
-          <li>
-            {{#link-to "news"}}<i class="fa fa-newspaper-o fa-fw"></i> News{{/link-to}}
-          </li>
-          <li>
-            {{#link-to "about"}}<i class="fa fa-question-circle fa-fw"></i> About{{/link-to}}
-          </li>
-        </ul>
-      </div>
-      <!-- /.sidebar-collapse -->
-    </div>
-    <!-- /.navbar-static-side -->
+
+    {{render "sidebar"}}
   </nav>
 
   <div id="page-wrapper">
@@ -102,11 +58,3 @@
 
 </div>
 <!-- /#wrapper -->
-
-<script>
-$(function() {
-
-  $('#side-menu').metisMenu();
-
-});
-</script>

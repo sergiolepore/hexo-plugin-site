@@ -9,11 +9,11 @@ var SearchBoxComponent = Ember.Component.extend({
      */
     fireSearch: function() {
       // use the clean string (without extra whitespaces)
-      var searchQuery = this.get('query');
+      var query = this.get('query');
 
       // call the main action
       // {{search-box action="anAction"}}
-      this.sendAction('action', searchQuery);
+      this.sendAction('action', query);
     }
   },
 

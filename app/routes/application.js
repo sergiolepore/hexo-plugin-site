@@ -7,14 +7,18 @@ var ApplicationRoute = Ember.Route.extend({
 
   actions: {
     /**
-     * Here we catch the action bubbled from the search-box component
+     * Here we catch the action bubbled from the search-box component inside the
+     * sidebar view.
+     * If the query is not an empty string, we transition to the search route
+     * with the query as a parameter.
+     * In the search route is where the magic happens...
      */
-    searchTransition: function(searchQuery) {
+    searchTransition: function(query) {
       // remove all extra whitespaces
-      searchQuery = searchQuery.replace(/\s+/g, ' ').trim();
+      query = query.replace(/\s+/g, ' ').trim();
 
-      if (searchQuery) {
-        this.transitionTo('search', searchQuery);
+      if (query) {
+        this.transitionTo('search', query);
       }
     }
   }

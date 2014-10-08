@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('plugin-version', 'PluginVersion', {
+moduleForModel('pluginversion', 'PluginVersion', {
   // Specify the other units that are required for this test.
   needs: []
 });

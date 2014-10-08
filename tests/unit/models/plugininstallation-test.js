@@ -3,7 +3,7 @@ import {
   test
 } from 'ember-qunit';
 
-moduleForModel('plugin-installation', 'PluginInstallation', {
+moduleForModel('plugininstallation', 'PluginInstallation', {
   // Specify the other units that are required for this test.
   needs: []
 });

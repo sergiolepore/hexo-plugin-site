@@ -12,8 +12,8 @@ var Plugin = DS.Model.extend({
   user: DS.belongsTo('user'),
   keywords: DS.hasMany('keyword'),
   keywordCache: DS.attr('string'),
-  versions: DS.hasMany('pluginVersion'),
-  installations: DS.hasMany('pluginInstallation')
+  versions: DS.hasMany('pluginversion'),
+  installations: DS.hasMany('plugininstallation')
 });
 
 export default Plugin;

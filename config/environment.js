@@ -16,9 +16,12 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      apiHost: 'http://localhost:1337',
+      apiHost: '',
       version: '0.0.1-alpha'
-    }
+    },
+
+    contentSecurityPolicy: {},
+
   };
 
   if (environment === 'development') {
@@ -27,6 +30,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.APP.apiHost = 'http://localhost:1337';
+    ENV.contentSecurityPolicy['connect-src'] = "http://localhost:1337";
   }
 
   if (environment === 'test') {
@@ -43,6 +49,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.APP.apiHost = 'http://api.hexo-plugins.com';
+    ENV.contentSecurityPolicy['connect-src'] = "http://api.hexo-plugins.com";
   }
 
   return ENV;

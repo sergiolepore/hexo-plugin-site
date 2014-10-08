@@ -71,6 +71,10 @@ app.import('vendor/semver.js', {
   }
 });
 
+// loader / progress bar
+app.import('bower_components/pace/themes/blue/pace-theme-minimal.css');
+app.import('bower_components/pace/pace.js');
+
 // Support for non-AMD libs
 app.import('vendor/custom-plugins/amdize.js');
 

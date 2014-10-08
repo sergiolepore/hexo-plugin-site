@@ -41,7 +41,12 @@ var SearchRoute = Ember.Route.extend({
     controller.set('query', query);
     controller.set('users', model.users);
     controller.set('plugins', model.plugins);
-  }
+  },
+
+  deactivate: function() {
+    // when leaving the search route, ensure no garbage is kept in the controller
+    this.controllerFor('search').send('reset');
+  },
 });
 
 export default SearchRoute;

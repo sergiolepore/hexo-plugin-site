@@ -53,9 +53,6 @@ app.import('bower_components/morris.js/morris.css');
 app.import('vendor/temporary-fixes/raphael.js');
 app.import('bower_components/morris.js/morris.js');
 
-// temporal patches with jquery. Only for test, will later be moved to a component
-app.import('vendor/jq-temp.js');
-
 // handlebars helpers
 // WILL BE DISABLED, for now
 // app.import('bower_components/swag/lib/swag.js', {

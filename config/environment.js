@@ -20,7 +20,10 @@ module.exports = function(environment) {
       version: '0.0.1-alpha'
     },
 
-    contentSecurityPolicy: {},
+    contentSecurityPolicy: {
+      "style-src": "'self' fonts.googleapis.com",
+      "font-src": "fonts.gstatic.com"
+    },
 
   };
 

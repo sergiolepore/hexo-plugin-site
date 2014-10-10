@@ -6,39 +6,14 @@ var SearchRoute = Ember.Route.extend({
 
   model: function(params) {
     var query = params.query;
-    var pluginQuery = [];
-    var userQuery = [];
-    var keywordQuery = [];
-
-    if (!query || query.length < 3) {
-      return { plugins:[], users: [], keywords: [] };
-    }
+    var controller = this.controllerFor('search');
 
     this.set('titleToken', query + ' - Search');
-    this.set('query', query);
-
-    query = '%' + query.replace(/\s+/, '%') + '%';
-
-    pluginQuery.push({ name: { like: query }});
-    pluginQuery.push({ packageName: { like: query }});
-    pluginQuery.push({ description: { like: query }});
-    pluginQuery.push({ keywordCache: { like: query }});
-    pluginQuery.push({ readme: { like: query }});
-
-    userQuery.push({ name: { like: query }});
-
-    keywordQuery.push({ name: { like: query }});
-
-    return Ember.RSVP.hash({
-      plugins: this.store.find('plugin', { where: { or: pluginQuery }}),
-      users: this.store.find('user', { where: { or: userQuery }}),
-      keywords: this.store.find('keyword', { where: { or: keywordQuery }})
-    });
-  },
-
-  setupController: function(controller, model) {
-    this._super(controller, model);
-    controller.set('query', this.get('query'));
+    controller.set('query', query);
+    
+    controller.send('searchPlugins');
+    controller.send('searchUsers');
+    controller.send('searchKeywords');
   },
 
   deactivate: function() {

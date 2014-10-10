@@ -5,66 +5,42 @@
 {{/if}}
 <div class="row page-content">
   <section class="col-lg-8 primary-results">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <span>Plugins</span>
-      </div>
+    {{#results-box title="Plugins"}}
+      {{#each plugins}}
+        <a href="#" class="list-group-item">{{name}}</a>
+      {{else}}
+        No plugins were found
+      {{/each}}
 
-      <div class="panel-body">
-        <div class="list-group">
-          {{#each plugins}}
-            <a href="#" class="list-group-item">{{name}}</a>
-          {{else}}
-            No plugins were found
-          {{/each}}
-
-          {{#if canLoadMorePlugins}}
-            <a href="#" {{action "searchPlugins"}} class="btn btn-default btn-block">Show more</a>
-          {{/if}}
-        </div>
-      </div>
-    </div>
+      {{#if canLoadMorePlugins}}
+        <a href="#" {{action "searchPlugins"}} class="btn btn-default btn-block">Show more</a>
+      {{/if}}
+    {{/results-box}}
   </section>
 
   <section class="col-lg-4 secondary-results">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <span>Developers</span>
-      </div>
+    {{#results-box title="Developers"}}
+      {{#each users}}
+        <a href="#" class="list-group-item">{{name}}</a>
+      {{else}}
+        No developers were found
+      {{/each}}
 
-      <div class="panel-body">
-        <div class="list-group">
-          {{#each users}}
-            <a href="#" class="list-group-item">{{name}}</a>
-          {{else}}
-            No developers were found
-          {{/each}}
+      {{#if canLoadMoreUsers}}
+        <a href="#" {{action "searchUsers"}} class="btn btn-default btn-block">Show more</a>
+      {{/if}}
+    {{/results-box}}
 
-          {{#if canLoadMoreUsers}}
-            <a href="#" {{action "searchUsers"}} class="btn btn-default btn-block">Show more</a>
-          {{/if}}
-        </div>
-      </div>
-    </div>
+    {{#results-box title="Keywords"}}
+      {{#each keywords}}
+        <a href="#" class="list-group-item">{{name}}</a>
+      {{else}}
+        No keywords were found
+      {{/each}}
 
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <span>Keywords</span>
-      </div>
-
-      <div class="panel-body">
-        <div class="list-group">
-          {{#each keywords}}
-            <a href="#" class="list-group-item">{{name}}</a>
-          {{else}}
-            No keywords were found
-          {{/each}}
-
-          {{#if canLoadMoreKeywords}}
-            <a href="#" {{action "searchKeywords"}} class="btn btn-default btn-block">Show more</a>
-          {{/if}}
-        </div>
-      </div>
-    </div>
+      {{#if canLoadMoreKeywords}}
+        <a href="#" {{action "searchKeywords"}} class="btn btn-default btn-block">Show more</a>
+      {{/if}}
+    {{/results-box}}
   </section>
 </div>

@@ -22,8 +22,9 @@ Router.map(function() {
     this.route('edit');
   });
   this.resource('user', { path: '/user/:user_id' }, function() {
-    
+
   });
+  this.route('keyword', { path: '/keyword/:keyword_id' });
 });
 
 export default Router;

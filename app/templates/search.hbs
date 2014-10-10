@@ -20,8 +20,8 @@
 
   <section class="col-lg-4 secondary-results">
     {{#results-box title="Developers" titleIcon="fa-user"}}
-      {{#each users}}
-        <a href="#" class="list-group-item">{{name}}</a>
+      {{#each user in users}}
+        {{partial "search-result-user"}}
       {{else}}
         No developers were found
       {{/each}}
@@ -32,8 +32,8 @@
     {{/results-box}}
 
     {{#results-box title="Keywords" titleIcon="fa-tag"}}
-      {{#each keywords}}
-        <a href="#" class="list-group-item">{{name}}</a>
+      {{#each keyword in keywords}}
+        {{partial "search-result-keyword"}}
       {{else}}
         No keywords were found
       {{/each}}

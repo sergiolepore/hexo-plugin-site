@@ -18,8 +18,11 @@ Router.map(function() {
     this.route('add');
   });
   this.route('search', { path: '/search/:query' });
-  this.resource('plugin', { path: '/plugin/:plugin_id' }, function() {
+  this.resource('plugin', { path: '/plugin/:plugin_slug' }, function() {
     this.route('edit');
+  });
+  this.resource('user', { path: '/user/:user_id' }, function() {
+    
   });
 });
 

@@ -84,6 +84,22 @@ app.import('bower_components/underscore/underscore.js', {
 });
 app.import('bower_components/underscore.string/lib/underscore.string.js');
 
+app.import('bower_components/moment/moment.js', {
+  exports: {
+    'moment': [
+      'default'
+    ]
+  }
+});
+
+app.import('bower_components/numeral/numeral.js', {
+  exports: {
+    'numeral': [
+      'default'
+    ]
+  }
+});
+
 // Support for non-AMD libs
 app.import('vendor/custom-plugins/amdize.js');
 

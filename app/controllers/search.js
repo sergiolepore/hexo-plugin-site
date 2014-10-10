@@ -64,6 +64,10 @@ var SearchController = Ember.Controller.extend({
       var searchQuery = this.get('query');
       var queryParams = [];
 
+      if (searchQuery.length < 3) {
+        return;
+      }
+
       searchQuery = '%' + searchQuery.replace(/\s+/, '%') + '%';
 
       queryParams.push({ name: { like: searchQuery }});
@@ -83,6 +87,10 @@ var SearchController = Ember.Controller.extend({
       var searchQuery = this.get('query');
       var queryParams = [];
 
+      if (searchQuery.length < 3) {
+        return;
+      }
+
       searchQuery = '%' + searchQuery.replace(/\s+/, '%') + '%';
 
       queryParams.push({ name: { like: searchQuery }});
@@ -97,6 +105,10 @@ var SearchController = Ember.Controller.extend({
     searchKeywords: function() {
       var searchQuery = this.get('query');
       var queryParams = [];
+
+      if (searchQuery.length < 3) {
+        return;
+      }
 
       searchQuery = '%' + searchQuery.replace(/\s+/, '%') + '%';
 

@@ -13,7 +13,8 @@ var Plugin = DS.Model.extend({
   keywords: DS.hasMany('keyword'),
   keywordCache: DS.attr('string'),
   versions: DS.hasMany('pluginversion'),
-  installations: DS.hasMany('plugininstallation')
+  installations: DS.hasMany('plugininstallation'),
+  installationCount: DS.attr('number')
 });
 
 export default Plugin;

@@ -18,6 +18,8 @@
     "metisMenu": "~1.1.2",
     "morris.js": "~0.5.1",
     "swag": "~0.7.0",
-    "pace": "~1.0.1"
+    "pace": "~1.0.1",
+    "underscore": "~1.7.0",
+    "underscore.string": "~2.3.3"
   }
 }

@@ -19,4 +19,13 @@
       'default': semver
     }
   });
+
+  /* global define _ */
+  define('underscore', [], function() {
+    'use strict';
+
+    return {
+      'default': _
+    }
+  })
 })();

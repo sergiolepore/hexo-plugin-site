@@ -75,6 +75,15 @@ app.import('vendor/semver.js', {
 app.import('bower_components/pace/themes/blue/pace-theme-minimal.css');
 app.import('bower_components/pace/pace.js');
 
+app.import('bower_components/underscore/underscore.js', {
+  exports: {
+    'underscore': [
+      'default'
+    ]
+  }
+});
+app.import('bower_components/underscore.string/lib/underscore.string.js');
+
 // Support for non-AMD libs
 app.import('vendor/custom-plugins/amdize.js');
 

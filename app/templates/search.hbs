@@ -6,18 +6,14 @@
 <div class="row page-content">
   <section class="col-lg-8 primary-results">
     {{#results-box title="Plugins" titleIcon="fa-plug"}}
-      {{#each plugins}}
-        {{#link-to 'plugin' id}}
-        <article class="search-result list-group-item">
-          <span>{{name}}</span>
-        </article>
-        {{/link-to}}
+      {{#each plugin in plugins}}
+        {{partial "search-result-plugin"}}
       {{else}}
         No plugins were found
       {{/each}}
 
       {{#if canLoadMorePlugins}}
-        <a href="#" {{action "searchPlugins"}} class="btn btn-default btn-block">Show more</a>
+        <a href="#" {{action "searchPlugins"}} class="btn btn-default btn-block">Load more</a>
       {{/if}}
     {{/results-box}}
   </section>
@@ -31,7 +27,7 @@
       {{/each}}
 
       {{#if canLoadMoreUsers}}
-        <a href="#" {{action "searchUsers"}} class="btn btn-default btn-block">Show more</a>
+        <a href="#" {{action "searchUsers"}} class="btn btn-default btn-block">Load more</a>
       {{/if}}
     {{/results-box}}
 
@@ -43,7 +39,7 @@
       {{/each}}
 
       {{#if canLoadMoreKeywords}}
-        <a href="#" {{action "searchKeywords"}} class="btn btn-default btn-block">Show more</a>
+        <a href="#" {{action "searchKeywords"}} class="btn btn-default btn-block">Load more</a>
       {{/if}}
     {{/results-box}}
   </section>

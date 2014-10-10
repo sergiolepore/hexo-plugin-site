@@ -1,0 +1,40 @@
+<article class="search-results-plugin list-group-item">
+  <div class="row">
+    <div class="col-lg-8 title-container">
+      {{#link-to 'plugin' plugin.packageName}}
+        <h4>{{plugin.name}}</h4>
+      {{/link-to}}
+      <span class="user-info">
+        by
+        {{#link-to 'user' plugin.user.id}}
+          {{plugin.user.name}}
+        {{/link-to}}
+      </span>
+    </div>
+    <div class="col-lg-4">
+  		<ul class="meta-search">
+  			<li>
+          <label>Version</label>
+          <span>{{plugin.lastVersion}}</span>
+        </li>
+        <li>
+          <label>Updated</label>
+          <span>{{format-date-ago plugin.lastModified}}</span>
+        </li>
+        <li>
+          <label>Hexo Version</label>
+          <span>{{plugin.hexoVersionSupport}}</span>
+        </li>
+        <li>
+          <label>Installations</label>
+          <span>{{number-format plugin.installationCount '0a'}}</span>
+        </li>
+  		</ul>
+    </div>
+  </div>
+  <div class="row plugin-extra-info">
+    <div class="col-lg-12">
+      <p>{{plugin.description}}</p>
+    </div>
+	</div>
+</article>

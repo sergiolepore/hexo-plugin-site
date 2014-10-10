@@ -5,9 +5,13 @@
 {{/if}}
 <div class="row page-content">
   <section class="col-lg-8 primary-results">
-    {{#results-box title="Plugins"}}
+    {{#results-box title="Plugins" titleIcon="fa-plug"}}
       {{#each plugins}}
-        <a href="#" class="list-group-item">{{name}}</a>
+        {{#link-to 'plugin' id}}
+        <article class="search-result list-group-item">
+          <span>{{name}}</span>
+        </article>
+        {{/link-to}}
       {{else}}
         No plugins were found
       {{/each}}
@@ -19,7 +23,7 @@
   </section>
 
   <section class="col-lg-4 secondary-results">
-    {{#results-box title="Developers"}}
+    {{#results-box title="Developers" titleIcon="fa-user"}}
       {{#each users}}
         <a href="#" class="list-group-item">{{name}}</a>
       {{else}}
@@ -31,7 +35,7 @@
       {{/if}}
     {{/results-box}}
 
-    {{#results-box title="Keywords"}}
+    {{#results-box title="Keywords" titleIcon="fa-tag"}}
       {{#each keywords}}
         <a href="#" class="list-group-item">{{name}}</a>
       {{else}}

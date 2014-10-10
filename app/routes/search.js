@@ -8,6 +8,11 @@ var SearchRoute = Ember.Route.extend({
     var query = params.query;
     var pluginQuery = [];
     var userQuery = [];
+    var keywordQuery = [];
+
+    if (!query || query.length < 3) {
+      return { plugins:[], users: [], keywords: [] };
+    }
 
     this.set('titleToken', query + ' - Search');
     this.set('query', query);
@@ -22,25 +27,18 @@ var SearchRoute = Ember.Route.extend({
 
     userQuery.push({ name: { like: query }});
 
-    // return this.store.find('plugin', {
-    //   where: {
-    //     or: pluginQuery
-    //   }
-    // });
+    keywordQuery.push({ name: { like: query }});
 
     return Ember.RSVP.hash({
       plugins: this.store.find('plugin', { where: { or: pluginQuery }}),
-      users: this.store.find('user', { where: { or: userQuery }})
+      users: this.store.find('user', { where: { or: userQuery }}),
+      keywords: this.store.find('keyword', { where: { or: keywordQuery }})
     });
   },
 
   setupController: function(controller, model) {
     this._super(controller, model);
-    var query = this.get('query');
-
-    controller.set('query', query);
-    controller.set('users', model.users);
-    controller.set('plugins', model.plugins);
+    controller.set('query', this.get('query'));
   },
 
   deactivate: function() {

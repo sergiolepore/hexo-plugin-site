@@ -17,7 +17,7 @@ var ApplicationRoute = Ember.Route.extend({
       // remove all extra whitespaces
       query = query.replace(/\s+/g, ' ').trim();
 
-      if (query) {
+      if (query && query.length >= 3) {
         this.transitionTo('search', query);
       }
     }

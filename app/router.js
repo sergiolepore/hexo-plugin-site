@@ -15,8 +15,12 @@ Router.map(function() {
     this.route('new');
     this.route('updated');
     this.route('popular');
+    this.route('add');
   });
   this.route('search', { path: '/search/:query' });
+  this.resource('plugin', { path: '/plugin/:plugin_id' }, function() {
+    this.route('edit');
+  });
 });
 
 export default Router;

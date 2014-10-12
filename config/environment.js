@@ -17,12 +17,12 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       apiHost: '',
-      version: '0.0.1-alpha'
+      version: '0.1.2-alpha'
     },
 
     contentSecurityPolicy: {
       "style-src": "'self' fonts.googleapis.com",
-      "font-src": "fonts.gstatic.com"
+      "font-src": "'self' fonts.gstatic.com"
     },
 
   };

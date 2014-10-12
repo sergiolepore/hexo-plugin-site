@@ -93,7 +93,7 @@ var SearchController = Ember.Controller.extend({
 
       searchQuery = '%' + searchQuery.replace(/\s+/, '%') + '%';
 
-      queryParams.push({ name: { like: searchQuery }});
+      queryParams.push({ username: { like: searchQuery }});
 
       this.send('searchModels', {
         propertyName: 'users',

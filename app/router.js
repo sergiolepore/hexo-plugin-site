@@ -21,7 +21,7 @@ Router.map(function() {
   this.resource('plugin', { path: '/plugin/:plugin_slug' }, function() {
     this.route('edit');
   });
-  this.resource('user', { path: '/user/:user_id' }, function() {
+  this.resource('user', { path: '/user/:user_slug' }, function() {
 
   });
   this.route('keyword', { path: '/keyword/:keyword_id' });

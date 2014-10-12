@@ -32,6 +32,12 @@ var Plugin = DS.Model.extend({
     return hexoVersion? hexoVersion : 'N/D';
   }.property('versions.@each'),
 
+  npmUrl: function() {
+    var packageName = this.get('packageName');
+
+    return 'https://npmjs.org/package/' + packageName;
+  }.property('packageName'),
+
 });
 
 export default Plugin;

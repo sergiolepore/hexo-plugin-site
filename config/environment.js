@@ -22,7 +22,8 @@ module.exports = function(environment) {
 
     contentSecurityPolicy: {
       "style-src": "'self' fonts.googleapis.com",
-      "font-src": "'self' fonts.gstatic.com"
+      "font-src": "'self' fonts.gstatic.com",
+      "img-src": "'self' *"
     },
 
   };

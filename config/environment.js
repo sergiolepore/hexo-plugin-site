@@ -17,6 +17,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
       apiHost: '',
+      apiNamespace: 'v1',
       version: '0.1.2-alpha'
     },
 

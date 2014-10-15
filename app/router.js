@@ -11,10 +11,10 @@ Router.map(function() {
   this.route('docs');
   this.route('news');
   this.resource('plugins', function() {
-    this.route('trending');
-    this.route('new');
-    this.route('updated');
-    this.route('popular');
+    // this.route('trending');
+    // this.route('new');
+    // this.route('updated');
+    // this.route('popular');
     this.route('add');
   });
   this.route('search', { path: '/search/:query' });

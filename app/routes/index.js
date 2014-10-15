@@ -12,6 +12,14 @@ var IndexRoute = Ember.Route.extend({
     controller.send('loadPopular');
   },
 
+  activate: function() {
+    this.controllerFor('index').send('reset');
+  },
+
+  deactivate: function() {
+    this.controllerFor('index').send('reset');
+  }
+
 });
 
 export default IndexRoute;

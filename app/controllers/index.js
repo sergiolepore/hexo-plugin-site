@@ -107,6 +107,16 @@ var IndexController = Ember.ObjectController.extend({
       this.store.find('plugin', popularQuery).then(function(foundRecords) {
         _this.get('popular').pushObjects(foundRecords.toArray());
       });
+    },
+
+    /**
+     * Clears the controller properties
+     */
+    reset: function() {
+      this.get('trending').clear();
+      this.get('newest').clear();
+      this.get('updated').clear();
+      this.get('popular').clear();
     }
   },
 

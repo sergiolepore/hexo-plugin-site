@@ -27,6 +27,18 @@ var ApplicationController = Ember.Controller.extend({
     return semver.gte(version, '1.0.0');
   }.property(),
 
+  init: function() {
+    var styleTitle = 'background: #eee; color: #0e83cd; font-size: 1.2em; font-weight: bold; font-family: monospace;';
+    var styleText = 'background: #eee; color: #444; font-size: 1.2em; font-family: monospace;';
+    var styleTextDomo = 'background: #eee; color: #a00; font-size: 1.2em; font-weight: bold; font-family: monospace;';
+
+    console.log('%c Hey there! :)                                          ', styleTitle);
+    console.log('%c If you are seeing this, why don\'t you join us?         ', styleText);
+    console.log('%c  > https://github.com/sergiolepore/hexo-plugin-site    ', styleText);
+    console.log('%c  > https://github.com/sergiolepore/hexo-plugin-api     ', styleText);
+    console.log('%c  > https://github.com/sergiolepore/hexo-plugin-manager ', styleText);
+    console.log('%c \\|°▿▿▿▿°|/                                             ', styleTextDomo);
+  }
 });
 
 export default ApplicationController;

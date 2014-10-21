@@ -6,8 +6,8 @@
   <!-- /.col-lg-12 -->
 </div>
 <div class="row search-row">
-  <div class="col-lg-4"></div>
-  <div class="col-lg-4 text-center">
+  <div class="col-lg-2"></div>
+  <div class="col-lg-8 text-center">
     {{!--
       the search action when the user presses the button or ENTER will be
       handled by the "searchTransition" action declared on the application
@@ -15,7 +15,7 @@
     --}}
     {{search-box action="searchTransition"}}
   </div>
-  <div class="col-lg-4"></div>
+  <div class="col-lg-2"></div>
 </div>
 <!-- /.row -->
 <div class="row">
@@ -24,11 +24,11 @@
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-arrow-circle-up fa-5x"></i>
+            <i class="fa fa-arrow-circle-up"></i>
           </div>
           <div class="col-xs-9 text-right">
             <div class="huge">Trending</div>
-            <div>Recent increase in installs</div>
+            {{!-- <div>Recent increase in installs</div> --}}
           </div>
         </div>
       </div>
@@ -57,11 +57,11 @@
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-asterisk fa-5x"></i>
+            <i class="fa fa-asterisk"></i>
           </div>
           <div class="col-xs-9 text-right">
             <div class="huge">New</div>
-            <div>Just added to the database</div>
+            {{!-- <div>Just added to the database</div> --}}
           </div>
         </div>
       </div>
@@ -90,11 +90,11 @@
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-refresh fa-5x"></i>
+            <i class="fa fa-refresh"></i>
           </div>
           <div class="col-xs-9 text-right">
             <div class="huge">Updated</div>
-            <div>Recently updated</div>
+            {{!-- <div>Recently updated</div> --}}
           </div>
         </div>
       </div>
@@ -123,11 +123,11 @@
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-star fa-5x"></i>
+            <i class="fa fa-star"></i>
           </div>
           <div class="col-xs-9 text-right">
             <div class="huge">Popular</div>
-            <div>Most installed of all time</div>
+            {{!-- <div>Most installed of all time</div> --}}
           </div>
         </div>
       </div>

@@ -15,22 +15,26 @@ body
   h4
     font-weight 400
 
-#wrapper
+.col-app-outlet
+  border-left 1px solid color-border-main
+  padding 1.5em
+
+.wrapper
   width 100%
 
-  #page-wrapper
+  .page-wrapper
     padding 0 15px
-    min-height 568px
+    // min-height 568px
     background-color color-bg-content
 
-    @media screen and (min-width: media-min-width)
-      position inherit
-      margin 0 0 0 200px
-      padding 0 30px
-      border-left 1px solid color-border-main
+    // @media screen and (min-width: media-min-width)
+    //   position inherit
+    //   margin 0 0 0 200px
+    //   padding 0 30px
+    //   border-left 1px solid color-border-main
 
-    .page-content
-      padding-top 30px
+    // .page-content
+    //   padding-top 1.2em
 
 .panel
   .slidedown

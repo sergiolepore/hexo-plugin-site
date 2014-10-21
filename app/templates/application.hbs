@@ -1,4 +1,4 @@
-<div id="wrapper" {{bind-attr class="pageClass"}}>
+<div {{bind-attr class=":wrapper pageClass"}}>
   <!-- Navigation -->
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="navbar-header">
@@ -53,12 +53,20 @@
       <!-- /.dropdown -->
     </ul>
     <!-- /.navbar-top-links -->
-
-    {{render "sidebar"}}
   </nav>
 
-  <div id="page-wrapper">
-    {{outlet}}
+  <div class="page-wrapper">
+    <div class="row">
+      <div class="col-lg-2 col-sidebar">
+        {{render "sidebar"}}
+      </div>
+      <div class="col-lg-8 col-app-outlet">
+        {{outlet}}
+      </div>
+      <div class="col-lg-2">
+        <!-- Hi :) -->
+      </div>
+    </div>
   </div>
   <!-- /#page-wrapper -->
 

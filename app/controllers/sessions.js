@@ -74,50 +74,10 @@ var SessionsController = Ember.Controller.extend({
       }, function(reason) {
         if (reason.status === 401 || reason.status === 403) {
           swalert('Oops...', 'Wrong email or password', 'error');
-          // alert('Wrong username or password'); // TODO: replace with a beautiful popup
         } else {
-          alert('Oops! There was an error'); // TODO: replace with a beautiful popup
+          swalert('Oops...', 'This is embarrassing, but there was an unknown error. Try again later', 'error');
         }
       });
-
-      // // TODO: move to promise land using RSVP
-      // Ember.$.post(loginUrl, loginData).then(function(loginResponse) {
-      //   var userId = loginResponse.id;
-      //   var jwtUrl = ENV.APP.apiBaseEndpoint + '/users/jwt';
-      //
-      //   Ember.$.get(jwtUrl).then(function(jwtResponse) {
-      //
-      //   });
-      //
-      //   Ember.$.ajaxSetup({
-      //     headers: {
-      //       'access_token': response.token
-      //     }
-      //   });
-      //
-      //   _this.store.find('user', {
-      //     where: {
-      //       email: loginData.email
-      //     }
-      //   }).then(function(user) {
-      //     _this.setProperties({
-      //       user:   user,
-      //       token:  response.token
-      //     });
-      //
-      //     if (attemptedTransition) {
-      //       attemptedTransition.retry();
-      //       _this.set('attemptedTransition', null);
-      //     } else {
-      //       _this.transitionToRoute('users.current');
-      //     }
-      //   });
-      // }, function(error) {
-      //   if (error.status === 403) {
-      //     // wrong username or password
-      //     alert('Wrong username or password'); // TODO: replace with a beautiful popup
-      //   }
-      // });
     },
 
     reset: function() {

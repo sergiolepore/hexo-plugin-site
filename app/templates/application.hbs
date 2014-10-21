@@ -23,11 +23,13 @@
         <ul class="dropdown-menu dropdown-user">
           {{#if isAuthenticated}}
             <li>
-              <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+              {{#link-to 'users.current'}}
+                <i class="fa fa-user fa-fw"></i> User Profile
+              {{/link-to}}
             </li>
-            <li>
+            {{!-- <li>
               <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-            </li>
+            </li> --}}
             <li class="divider"></li>
             <li>
               <a href="#" {{action 'logout'}}>

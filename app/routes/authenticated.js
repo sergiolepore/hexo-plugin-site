@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import swalert from 'sweetAlert';
 
 /**
  * This is the basic route to handle all routes that needs authentication.
@@ -30,7 +31,7 @@ var AuthenticatedRoute = Ember.Route.extend({
       if (reason.status === 401 || reason.status === 403) {
         this.redirectToLogin(transition);
       } else {
-        alert('Unknown error'); // TODO: use a beautiful popup with a better message
+        swalert('Oops...', 'This is embarrassing, but there was an unknown error. Try again later', 'error');
       }
     }
   }

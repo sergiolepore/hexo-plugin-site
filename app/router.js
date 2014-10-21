@@ -10,6 +10,16 @@ Router.map(function() {
   this.route('installation');
   this.route('docs');
   this.route('news');
+  this.route('search', {
+    path: '/search/:query'
+  });
+  this.route('keyword', {
+    path: '/keyword/:keyword_id'
+  });
+  this.route('sessions', {
+    path: '/login'
+  });
+
   this.resource('plugins', function() {
     // this.route('trending');
     // this.route('new');
@@ -17,14 +27,20 @@ Router.map(function() {
     // this.route('popular');
     this.route('add');
   });
-  this.route('search', { path: '/search/:query' });
+
   this.resource('plugin', { path: '/plugin/:plugin_slug' }, function() {
     this.route('edit');
   });
-  this.resource('user', { path: '/user/:user_slug' }, function() {
 
+  this.resource('users', function() {
+    this.route('signup');
+    this.route('user', {
+      path: '/user/:user_slug'
+    });
+    this.route('current', {
+      path: '/me'
+    });
   });
-  this.route('keyword', { path: '/keyword/:keyword_id' });
 });
 
 export default Router;

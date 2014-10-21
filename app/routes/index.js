@@ -6,7 +6,7 @@ var IndexRoute = Ember.Route.extend({
   setupController: function(controller, model) {
     this._super(controller, model);
 
-    controller.send('loadTrending');
+    // controller.send('loadTrending');
     controller.send('loadNewest');
     controller.send('loadUpdated');
     controller.send('loadPopular');

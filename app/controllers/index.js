@@ -4,9 +4,9 @@ import ENV from 'hexo-plugin-site/config/environment';
 
 var IndexController = Ember.ObjectController.extend({
   trending: [],
-  newest: [],
-  updated: [],
-  popular: [],
+  newest:   [],
+  updated:  [],
+  popular:  [],
 
   actions: {
 
@@ -24,7 +24,12 @@ var IndexController = Ember.ObjectController.extend({
       // trending in the last 15 days
       var trendingQuery = {
         where: {
-          createdAt: { '>=': daysAgo, '<=': today }
+          '>=': {
+            createdAt: daysAgo
+          },
+          '<=': {
+            createdAt: today
+          }
         },
         limit: 10
       };
@@ -96,8 +101,8 @@ var IndexController = Ember.ObjectController.extend({
       var _this = this;
       var popularQuery = {
         where: {
-          installationCount: {
-            '>': 0
+          '>': {
+            installationCount: 0
           }
         },
         sort: 'installationCount DESC',

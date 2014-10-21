@@ -20,6 +20,11 @@ var ApplicationRoute = Ember.Route.extend({
       if (query && query.length >= 3) {
         this.transitionTo('search', query);
       }
+    },
+
+    logout: function() {
+      this.controllerFor('sessions').send('reset');
+      this.transitionTo('sessions');
     }
   }
 });

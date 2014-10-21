@@ -104,6 +104,15 @@ app.import('bower_components/numeral/numeral.js', {
   }
 });
 
+app.import('bower_components/sweetalert/lib/sweet-alert.css');
+app.import('bower_components/sweetalert/lib/sweet-alert.js', {
+  exports: {
+    'sweetAlert': [
+      'default'
+    ]
+  }
+});
+
 // Support for non-AMD libs
 app.import('vendor/custom-plugins/amdize.js');
 

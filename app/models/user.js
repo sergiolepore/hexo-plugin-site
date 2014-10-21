@@ -3,6 +3,7 @@ import DS from 'ember-data';
 var User = DS.Model.extend({
   username: DS.attr('string'),
   email: DS.attr('string'),
+  password: DS.attr('string'),
   githubProfile: DS.attr('string'),
   npmProfile: DS.attr('string'),
   website: DS.attr('string'),

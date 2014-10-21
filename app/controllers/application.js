@@ -3,7 +3,15 @@ import ENV from 'hexo-plugin-site/config/environment';
 import semver from 'semver';
 
 var ApplicationController = Ember.Controller.extend({
-  isSignedIn: false,
+  needs: ['sessions'],
+
+  currentUser: function() {
+    return this.get('controllers.sessions.currentUser');
+  }.property('controllers.sessions.currentUser'),
+
+  isAuthenticated: function() {
+    return !Ember.isEmpty(this.get('controllers.sessions.currentUser'));
+  }.property('controllers.sessions.currentUser'),
 
   version: function() {
     return ENV.APP.version;

@@ -2,7 +2,9 @@
  * Gives AMD compatibility to non AMD libs.
  */
 (function() {
-  /* global define swag */
+  /* global define */
+
+  /* global Swag */
   define('swag', [], function() {
     'use strict';
 
@@ -11,39 +13,48 @@
     };
   });
 
-  /* global define semver */
+  /* global semver */
   define('semver', [], function() {
     'use strict';
 
     return {
       'default': semver
-    }
+    };
   });
 
-  /* global define _ */
+  /* global _ */
   define('underscore', [], function() {
     'use strict';
 
     return {
       'default': _
-    }
+    };
   });
 
-  /* global define moment */
+  /* global moment */
   define('moment', [], function() {
     'use strict';
 
     return {
       'default': moment
-    }
+    };
   });
 
-  /* global define numeral */
+  /* global numeral */
   define('numeral', [], function() {
     'use strict';
 
     return {
       'default': numeral
-    }
+    };
+  });
+
+  /* global sweetAlert */
+  define('sweetAlert', [], function() {
+    'use strict';
+
+    return {
+      'default': sweetAlert
+    };
   });
 })();

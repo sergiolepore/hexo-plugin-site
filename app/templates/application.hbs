@@ -21,7 +21,7 @@
           <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
         </a>
         <ul class="dropdown-menu dropdown-user">
-          {{#if isSignedIn}}
+          {{#if isAuthenticated}}
             <li>
               <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
             </li>
@@ -30,15 +30,21 @@
             </li>
             <li class="divider"></li>
             <li>
-              <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+              <a href="#" {{action 'logout'}}>
+                <i class="fa fa-sign-out fa-fw"></i> Logout
+              </a>
             </li>
           {{else}}
             <li>
-              <a href="login.html"><i class="fa fa-sign-in fa-fw"></i> Login</a>
+              {{#link-to 'sessions'}}
+                <i class="fa fa-sign-in fa-fw"></i> Login
+              {{/link-to}}
             </li>
             <li class="divider"></li>
             <li>
-              <a href="login.html"><i class="fa fa-check-square-o fa-fw"></i> Register</a>
+              {{#link-to 'users.signup'}}
+                <i class="fa fa-check-square-o fa-fw"></i> Register
+              {{/link-to}}
             </li>
           {{/if}}
         </ul>

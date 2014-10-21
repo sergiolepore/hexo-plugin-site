@@ -57,5 +57,8 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy['connect-src'] = "http://api.hexo-plugins.com";
   }
 
+  // base url for non ember data compliant endpoints
+  ENV.APP.apiBaseEndpoint = ENV.APP.apiHost + '/' + ENV.APP.apiNamespace;
+
   return ENV;
 };

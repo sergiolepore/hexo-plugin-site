@@ -1,19 +1,19 @@
-<div class="navbar-default sidebar" role="navigation">
+<div class="sidebar" role="navigation">
   <div class="sidebar-nav navbar-collapse">
     <div {{bind-attr class=":ribbon isStable:stable:unstable"}}>
       <span>{{version}}</span>
     </div>
+    {{#if isNotIndex}}
+      <div class="sidebar-search">
+        {{!--
+          the search action when the user presses the button or ENTER will be
+          handled by the "searchTransition" action declared on the application
+          controller.
+        --}}
+        {{search-box query=searchQuery action="searchTransition"}}
+      </div>
+    {{/if}}
     <ul class="nav" id="side-menu">
-      {{#if isNotIndex}}
-        <li class="sidebar-search">
-          {{!--
-            the search action when the user presses the button or ENTER will be
-            handled by the "searchTransition" action declared on the application
-            controller.
-          --}}
-          {{search-box query=searchQuery action="searchTransition"}}
-        </li>
-      {{/if}}
       <li>
         {{#link-to "installation"}}<i class="fa fa-download fa-fw"></i> Installation{{/link-to}}
       </li>

@@ -11,29 +11,18 @@ sidebar-nav-border =
       padding-left 0
 
   .sidebar-search
-    padding 15px
+    padding 1em 1em 0 1em
 
   ul
+    margin-top 1em
     li
-      border-bottom 1px solid color-border-main
       a
+        margin 0 1em
+        color #777
+        border-left 2px solid #ddd
         &.active
-          background-color color-nav-active
-
-  .arrow
-    float right
-
-  .fa
-    &.arrow
-      &:before
-        content "\f104" /*replace with fa classes */
-
-  .active
-    >a
-      >.fa
-        &.arrow
-          &:before
-            content "\f107" /*replace with fa classes */
+          color color-hexo-light-blue
+          border-left-color color-hexo-light-blue
 
   .nav-second-level
     li
@@ -67,9 +56,3 @@ sidebar-nav-border =
       background-color color-ribbon-stable-back
       span
         border 1px solid color-ribbon-stable-inner
-
-  // @media screen and (min-width: media-min-width)
-  //   z-index 1
-  //   position absolute
-  //   width 200px
-  //   margin-top 51px

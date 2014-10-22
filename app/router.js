@@ -32,10 +32,10 @@ Router.map(function() {
     this.route('edit');
   });
 
-  this.resource('users', function() {
-    this.route('signup');
+  this.resource('users', { path: 'devs' }, function() {
+    this.route('new', { path: '/signup' });
     this.route('user', {
-      path: '/user/:user_slug'
+      path: '/dev/:user_slug'
     });
     this.route('current', {
       path: '/me'

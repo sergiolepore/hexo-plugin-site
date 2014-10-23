@@ -3,22 +3,22 @@ import swalert from 'sweetAlert';
 
 var UsersCurrentController = Ember.ObjectController.extend({
 
-  isEditing: false,
+  isEditing : false,
 
-  actions: {
+  actions : {
 
     // change to edit mode
-    edit: function() {
+    edit : function() {
       this.set('isEditing', true);
     },
 
-    cancel: function() {
+    cancel : function() {
       this.get('model').rollback();
       this.set('isEditing', false);
     },
 
     // persist changes and exit edit mode
-    save: function() {
+    save : function() {
       var user  = this.get('model');
       var _this = this;
 
@@ -33,16 +33,21 @@ var UsersCurrentController = Ember.ObjectController.extend({
       });
     },
 
+    updatePassword : function() {
+      // TODO: implement updatePassword logic.
+      // PUT api/users/password
+    },
+
     // permanently deletes the user account
-    delete: function() {
+    delete : function() {
       // TODO: implement delete account
     },
 
-    reset: function() {
+    reset : function() {
       this.get('model').rollback();
 
       this.setProperties({
-        isEditing: false,
+        isEditing : false,
       });
     }
 

@@ -1,1 +1,116 @@
-{{outlet}}
+<div class="row">
+  <div class="col-lg-12">
+    <div class="row dashboard-header dashboard-section">
+      <div class="col-lg-12">
+        <h1>Howdy, {{username}}</h1>
+      </div>
+    </div>
+
+    <div class="row dashboard-details dashboard-section">
+      <div class="col-lg-6">
+        <h2>Account Details</h2>
+        {{#if isEditing}}
+          <button {{action 'cancel'}} class="btn btn-default">Cancel</button>
+          <button {{action 'save'}} class="btn btn-success">Save</button>
+        {{else}}
+          <button {{action 'edit'}} class="btn btn-primary">Edit</button>
+        {{/if}}
+        <ul class="meta">
+          {{#unless isEditing}}
+            <li>
+              <label>Username</label>
+              <span>{{username}}</span>
+            </li>
+            <li>
+              <label>Created</label>
+              <span {{bind-attr title="updatedAtISO"}}>{{format-date-ago createdAt}}</span>
+            </li>
+            <li>
+              <label>Updated</label>
+              <span {{bind-attr title="updatedAtISO"}}>{{format-date-ago updatedAt}}</span>
+            </li>
+          {{/unless}}
+          <li>
+            <label>Github Profile</label>
+            {{#if isEditing}}
+              {{input type="text" class="form-control" value=githubProfile}}
+            {{else}}
+              <span>
+                <a {{bind-attr href="githubProfileUrl"}} target="_blank">{{githubProfile}}</a>
+              </span>
+            {{/if}}
+          </li>
+          <li>
+            <label>npm Profile</label>
+            {{#if isEditing}}
+              {{input type="text" class="form-control" value=npmProfile}}
+            {{else}}
+              <span>
+                <a {{bind-attr href="npmProfileUrl"}} target="_blank">{{npmProfile}}</a>
+              </span>
+            {{/if}}
+          </li>
+          <li>
+            <label>Website</label>
+            {{#if isEditing}}
+              {{input type="text" class="form-control" value=website}}
+            {{else}}
+              <span>
+                <a {{bind-attr href="website"}} target="_blank">{{extract-hostname website}}</a>
+              </span>
+            {{/if}}
+          </li>
+          <li>
+            <label>Donations</label>
+            {{#if isEditing}}
+              {{input type="text" class="form-control" value=donationsUrl}}
+            {{else}}
+              <span>
+                <a {{bind-attr href="donationsUrl"}} target="_blank">{{extract-hostname donationsUrl}}</a>
+              </span>
+            {{/if}}
+          </li>
+        </ul>
+      </div>  {{!-- /col-lg-6 --}}
+
+      <div class="col-lg-6">
+        <h2>Developer Token</h2>
+        <p class="alert alert-danger">
+          This is EXTREMELY important.
+        </p>
+        <p>
+          You'll need this token to prove that any plugin you are registering belongs to you. This is useful to prevent any "false registrations" or someone trying to steal your work.
+        </p>
+        <p>
+          {{#link-to 'installation'}}Here{{/link-to}} you can find more information regarding the plugin registration process.
+        </p>
+        <p>
+          <h1 class="huge text-center">{{id}}</h1>
+        </p>
+      </div>
+    </div> {{!-- /row --}}
+
+    <div class="row dashboard-statistics dashboard-section">
+      <div class="col-lg-12">
+        <h2>Statistics</h2>
+        <p>
+          Soon!
+        </p>
+      </div>
+    </div>
+
+    <div class="row dashboard-plugins dashboard-section">
+      <div class="col-lg-12">
+        <h2>Plugins</h2>
+        {{#results-box noHeading=true}}
+          {{#each plugin in plugins}}
+            {{partial "search-result-plugin"}}
+          {{else}}
+            No plugins were found
+          {{/each}}
+        {{/results-box}}
+      </div>
+    </div>
+
+  </div>
+</div>

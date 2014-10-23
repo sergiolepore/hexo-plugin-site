@@ -1,13 +1,19 @@
 // import Ember from 'ember';
 import AuthenticatedRoute from 'hexo-plugin-site/routes/authenticated';
 
-var CurrentUserRoute = AuthenticatedRoute.extend({
+var UsersCurrentRoute = AuthenticatedRoute.extend({
   titleToken: 'My Profile',
 
   model: function() {
-    return this.controllerFor('application').get('currentUser');
+    var currentUserId = this.controllerFor('application').get('currentUser');
+
+    return this.store.find('user', currentUserId);
+  },
+
+  setupController: function(controller, model) {
+    controller.set('model', model);
   }
 
 });
 
-export default CurrentUserRoute;
+export default UsersCurrentRoute;

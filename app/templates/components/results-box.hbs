@@ -1,7 +1,9 @@
 <div class="panel panel-default results-box">
-  <div class="panel-heading">
-    <i {{bind-attr class=":fa titleIcon"}}></i><span>{{title}}</span>
-  </div>
+  {{#unless noHeading}}
+    <div class="panel-heading">
+      <i {{bind-attr class=":fa titleIcon"}}></i><span>{{title}}</span>
+    </div>
+  {{/unless}}
 
   <div class="panel-body">
     <div class="list-group">

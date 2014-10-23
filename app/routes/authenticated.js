@@ -31,6 +31,7 @@ var AuthenticatedRoute = Ember.Route.extend({
       if (reason.status === 401 || reason.status === 403) {
         this.redirectToLogin(transition);
       } else {
+        console.log(reason);
         swalert('Oops...', 'This is embarrassing, but there was an unknown error. Try again later', 'error');
       }
     }

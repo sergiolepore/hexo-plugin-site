@@ -53,6 +53,7 @@ var SessionsController = Ember.Controller.extend({
         var token  = loginResponse.token;
         var userId = loginResponse.user;
 
+        _this.set('currentUser', userId);
         _this.set('token', token);
 
         Ember.$.ajaxSetup({
@@ -60,10 +61,6 @@ var SessionsController = Ember.Controller.extend({
             'Authorization': 'Bearer %token%'.replace('%token%', token)
           }
         });
-
-        return _this.store.find('user', userId);
-      }).then(function(user) {
-        _this.set('currentUser', user);
 
         if (attemptedTransition) {
           attemptedTransition.retry();
@@ -75,6 +72,7 @@ var SessionsController = Ember.Controller.extend({
         if (reason.status === 401 || reason.status === 403) {
           swalert('Oops...', 'Wrong email or password', 'error');
         } else {
+          console.log(reason);
           swalert('Oops...', 'This is embarrassing, but there was an unknown error. Try again later', 'error');
         }
       });

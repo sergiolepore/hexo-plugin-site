@@ -113,6 +113,8 @@ app.import('bower_components/sweetalert/lib/sweet-alert.js', {
   }
 });
 
+app.import('bower_components/ember-data.model-fragments/dist/ember-data.model-fragments.js');
+
 // Support for non-AMD libs
 app.import('vendor/custom-plugins/amdize.js');
 

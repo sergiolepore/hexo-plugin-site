@@ -24,6 +24,7 @@
     "moment": "~2.8.3",
     "numeral": "~1.5.3",
     "offline": "~0.7.11",
-    "sweetalert": "~0.2.0"
+    "sweetalert": "~0.2.0",
+    "ember-data.model-fragments": "~0.2.1"
   }
 }

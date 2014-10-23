@@ -1,30 +1,32 @@
 /* jshint node: true */
+var pkg = require('../package.json');
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'hexo-plugin-site',
-    environment: environment,
-    baseURL: '/',
-    locationType: 'auto',
-    EmberENV: {
-      FEATURES: {
+    modulePrefix : 'hexo-plugin-site',
+    environment  : environment,
+    baseURL      : '/',
+    locationType : 'auto',
+
+    EmberENV : {
+      FEATURES : {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
       }
     },
 
-    APP: {
+    APP : {
       // Here you can pass flags/options to your application instance
       // when it is created
-      apiHost: '',
-      apiNamespace: 'v1',
-      version: '0.1.2-alpha'
+      apiHost      : '',
+      apiNamespace : 'v1',
+      version      : pkg.version
     },
 
-    contentSecurityPolicy: {
-      "style-src": "'self' fonts.googleapis.com",
-      "font-src": "'self' fonts.gstatic.com",
-      "img-src": "'self' *"
+    contentSecurityPolicy : {
+      "style-src" : "'self' fonts.googleapis.com",
+      "font-src"  : "'self' fonts.gstatic.com",
+      "img-src"   : "'self' *"
     },
 
   };
@@ -42,7 +44,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
+    ENV.baseURL      = '/';
     ENV.locationType = 'auto';
 
     // keep test console output quieter

@@ -1,22 +1,21 @@
-import DS     from 'ember-data';
-import Ember  from 'ember';
-import moment from 'moment';
+import DS    from 'ember-data';
+import Ember from 'ember';
 
 var urlRegexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
 var User = DS.Model.extend({
-  username:       DS.attr('string'),
-  email:          DS.attr('string'),
-  password:       DS.attr('string'),
-  githubProfile:  DS.attr('string'),
-  npmProfile:     DS.attr('string'),
-  website:        DS.attr('string'),
-  donationsUrl:   DS.attr('string'),
-  plugins:        DS.hasMany('plugin', { async: true }),
-  createdAt:      DS.attr('date'),
-  updatedAt:      DS.attr('date'),
+  username        : DS.attr('string'),
+  email           : DS.attr('string'),
+  password        : DS.attr('string'),
+  githubProfile   : DS.attr('string'),
+  npmProfile      : DS.attr('string'),
+  website         : DS.attr('string'),
+  donationsUrl    : DS.attr('string'),
+  plugins         : DS.hasMany('plugin', { async: true }),
+  createdAt       : DS.attr('date'),
+  updatedAt       : DS.attr('date'),
 
-  githubProfileUrl: function() {
+  githubProfileUrl : function() {
     var github = this.get('githubProfile');
 
     // if it's not an url and not empty
@@ -28,7 +27,7 @@ var User = DS.Model.extend({
     return github;
   }.property('githubProfile'),
 
-  npmProfileUrl: function() {
+  npmProfileUrl : function() {
     var npm = this.get('npmProfile');
 
     // if it's not an url and not empty
@@ -40,25 +39,6 @@ var User = DS.Model.extend({
     return npm;
   }.property('npmProfile'),
 
-  createdAtISO: function() {
-    var createdAt = this.get('createdAt');
-
-    if (Ember.isEmpty(createdAt)) {
-      return;
-    }
-
-    return moment(createdAt).toISOString();
-  }.property('createdAt'),
-
-  updatedAtISO: function() {
-    var updatedAt = this.get('updatedAt');
-
-    if (Ember.isEmpty(updatedAt)) {
-      return;
-    }
-
-    return moment(updatedAt).toISOString();
-  }.property('createdAt'),
 });
 
 export default User;

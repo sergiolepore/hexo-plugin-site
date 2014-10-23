@@ -23,11 +23,11 @@
             </li>
             <li>
               <label>Created</label>
-              <span {{bind-attr title="updatedAtISO"}}>{{format-date-ago createdAt}}</span>
+              {{datetime-span datetime=createdAt}}
             </li>
             <li>
               <label>Updated</label>
-              <span {{bind-attr title="updatedAtISO"}}>{{format-date-ago updatedAt}}</span>
+              {{datetime-span datetime=updatedAt}}
             </li>
           {{/unless}}
           <li>

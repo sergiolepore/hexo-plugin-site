@@ -71,6 +71,27 @@
             {{/if}}
           </li>
         </ul>
+
+        <div class="password-update">
+          {{#if isChangingPassword}}
+            <div class="panel panel-default">
+              <form role="form" class="panel-body">
+                <fieldset>
+                  <div class="form-group">
+                    {{input type="text" class="form-control" value=oldPassword placeholder="Old Pasword"}}
+                  </div>
+                  <div class="form-group">
+                    {{input type="text" class="form-control" value=newPassword placeholder="New Pasword"}}
+                  </div>
+                </fieldset>
+                <button {{action 'cancelPassword'}} class="btn btn-default">Cancel</button>
+                <button {{action 'savePassword'}} class="btn btn-success">Save</button>
+              </form>
+            </div>
+          {{else}}
+            <button {{action 'changePassword'}} class="btn btn-primary">Change Password</button>
+          {{/if}}
+        </div>
       </div>  {{!-- /col-lg-6 --}}
 
       <div class="col-lg-6">

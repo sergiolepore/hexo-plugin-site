@@ -1,13 +1,13 @@
-import Ember from 'ember';
-import swalert from 'sweetAlert';
+import Ember            from 'ember';
+import swalert          from 'sweetAlert';
 import EmberValidations from 'ember-validations';
-import ENV from 'hexo-plugin-site/config/environment';
+import ENV              from 'hexo-plugin-site/config/environment';
 
 var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
 
-  emailExists:    false,
-  usernameExists: false,
-  hasErrors:      false,
+  emailExists     : false,
+  usernameExists  : false,
+  hasErrors       : false,
 
   usernameChanged: function() {
     var _this    = this;

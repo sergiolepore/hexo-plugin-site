@@ -13,6 +13,9 @@
               <div class="form-group">
                 {{input name="password" value=password placeholder="Password" type="password" class="form-control"}}
               </div>
+              <div class="form-group">
+                <a href="#" {{action "sendResetPasswordEmail"}}>Forgot your password?</a>
+              </div>
               <button {{action "loginUser"}} class="btn btn-lg btn-success btn-block">Login</button>
             </fieldset>
           </form>

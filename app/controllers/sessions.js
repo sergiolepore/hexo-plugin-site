@@ -42,7 +42,6 @@ var SessionsController = Ember.Controller.extend({
 
       // clear the login form
       this.setProperties({
-        email:    null,
         password: null
       });
 
@@ -69,13 +68,35 @@ var SessionsController = Ember.Controller.extend({
           _this.transitionToRoute('users.current');
         }
       }, function(reason) {
+        console.log(reason);
+
         if (reason.status === 401 || reason.status === 403) {
           swalert('Oops...', 'Wrong email or password', 'error');
         } else {
-          console.log(reason);
           swalert('Oops...', 'This is embarrassing, but there was an unknown error. Try again later', 'error');
         }
       });
+    },
+
+    sendResetPasswordEmail : function() {
+      var apiUrl = ENV.APP.apiBaseEndpoint + '/sessions/resetPasswordEmail';
+      var email  = this.get('email');
+
+      if (!email) {
+        swalert('Oops!', 'Enter your email in the login form, then click this link again', 'error');
+      } else {
+        Ember.$.get(apiUrl, { email: email }).then(function() {
+          swalert('Great!', 'An email was sent to you with instructions to reset your password', 'success');
+        }, function(reason) {
+          console.log(reason);
+
+          if (reason.status === 404) {
+            swalert('Oops...', 'The email you provided is not registered', 'error');
+          } else {
+            swalert('Oops...', 'This is embarrassing, but there was an unknown error. Try again later', 'error');
+          }
+        });
+      }
     },
 
     reset: function() {

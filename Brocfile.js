@@ -76,8 +76,10 @@ app.import('bower_components/pace/themes/blue/pace-theme-minimal.css');
 app.import('bower_components/pace/pace.js');
 
 // offline notification & reconnect
-app.import('bower_components/offline/themes/offline-theme-default.css');
-app.import('bower_components/offline/offline.min.js');
+// app.import('bower_components/offline/offline.min.js');
+// app.import('bower_components/offline/themes/offline-theme-default.css');
+// app.import('bower_components/offline/themes/offline-language-english.css');
+// app.import('vendor/offline-config.js');
 
 app.import('bower_components/underscore/underscore.js', {
   exports: {

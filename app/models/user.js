@@ -11,7 +11,7 @@ var User = DS.Model.extend({
   npmProfile      : DS.attr('string'),
   website         : DS.attr('string'),
   donationsUrl    : DS.attr('string'),
-  plugins         : DS.hasMany('plugin', { async: true }),
+  plugins         : DS.hasMany('plugin'),
   createdAt       : DS.attr('date'),
   updatedAt       : DS.attr('date'),
 
@@ -38,6 +38,10 @@ var User = DS.Model.extend({
 
     return npm;
   }.property('npmProfile'),
+
+  pluginCount : function() {
+    return this.get('plugins.length');
+  }.property('plugins.[]'),
 
 });
 

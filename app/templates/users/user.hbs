@@ -1,1 +1,62 @@
-{{outlet}}
+<div class="row">
+  <div class="col-lg-12">
+    <div class="row profile-header profile-section">
+      <div class="col-lg-12">
+        <h1>{{username}}</h1>
+      </div>
+    </div>
+
+    <div class="row profile-details profile-section">
+      <div class="col-lg-6">
+        <h2>Developer Details</h2>
+        <ul class="meta">
+          <li>
+            <label>User Since</label>
+            <span>{{format-date createdAt 'MMMM d, YYYY'}}</span>
+          </li>
+          <li>
+            <label>Contributions</label>
+            <span>{{pluginCount}} plugins</span>
+          </li>
+          <li>
+            <label>Github Profile</label>
+            <span>
+              <a {{bind-attr href="githubProfileUrl"}} target="_blank">{{githubProfile}}</a>
+            </span>
+          </li>
+          <li>
+            <label>npm Profile</label>
+            <span>
+              <a {{bind-attr href="npmProfileUrl"}} target="_blank">{{npmProfile}}</a>
+            </span>
+          </li>
+          <li>
+            <label>Website</label>
+            <span>
+              <a {{bind-attr href="website"}} target="_blank">{{extract-hostname website}}</a>
+            </span>
+          </li>
+          <li>
+            <label>Donations</label>
+            <span>
+              <a {{bind-attr href="donationsUrl"}} target="_blank">{{extract-hostname donationsUrl}}</a>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div> {{!-- /row --}}
+
+    <div class="row profile-plugins profile-section">
+      <div class="col-lg-12">
+        <h2>Plugins</h2>
+        {{#results-box noHeading=true}}
+          {{#each plugin in plugins}}
+            {{partial "search-result-plugin"}}
+          {{else}}
+            No plugins were found
+          {{/each}}
+        {{/results-box}}
+      </div>
+    </div>
+  </div>
+</div>

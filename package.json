@@ -1,6 +1,6 @@
 {
   "name": "hexo-plugin-site",
-  "version": "0.6.3-alpha",
+  "version": "0.7.0-alpha",
   "private": true,
   "directories": {
     "doc": "doc",

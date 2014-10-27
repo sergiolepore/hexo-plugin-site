@@ -41,9 +41,8 @@ var ResetPasswordController = Ember.Controller.extend(EmberValidations.Mixin, {
     }
   },
 
-  actions : {
-
-    save : function() {
+  actions: {
+    save: function() {
       var _this = this;
 
       this.validate().then(function() {
@@ -80,7 +79,7 @@ var ResetPasswordController = Ember.Controller.extend(EmberValidations.Mixin, {
       });
     },
 
-    reset : function() {
+    reset: function() {
       this.setProperties({
         password              : null,
         passwordConfirmation  : null,

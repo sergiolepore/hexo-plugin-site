@@ -15,7 +15,7 @@ var User = DS.Model.extend({
   createdAt       : DS.attr('date'),
   updatedAt       : DS.attr('date'),
 
-  githubProfileUrl : function() {
+  githubProfileUrl: function() {
     var github = this.get('githubProfile');
 
     // if it's not an url and not empty
@@ -27,7 +27,7 @@ var User = DS.Model.extend({
     return github;
   }.property('githubProfile'),
 
-  npmProfileUrl : function() {
+  npmProfileUrl: function() {
     var npm = this.get('npmProfile');
 
     // if it's not an url and not empty
@@ -39,7 +39,7 @@ var User = DS.Model.extend({
     return npm;
   }.property('npmProfile'),
 
-  pluginCount : function() {
+  pluginCount: function() {
     return this.get('plugins.length');
   }.property('plugins.[]'),
 

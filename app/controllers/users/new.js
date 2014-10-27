@@ -153,9 +153,9 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
       }).then(function() {
         // user successfully saved
         swalert({
-          title:  'Great!',
-          text:   'Your account has been created',
-          type:   'success'
+          title : 'Great!',
+          text  : 'Your account has been created',
+          type  : 'success'
         }, function() {
           // when user closes the alert
           // show him the login page
@@ -176,10 +176,10 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
 
     reset: function() {
       this.setProperties({
-        usernameExists: false,
-        emailExists:    false,
-        hasErrors:      false,
-        model:          null,
+        usernameExists : false,
+        emailExists    : false,
+        hasErrors      : false,
+        model          : null,
       });
     }
   }

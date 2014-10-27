@@ -6,6 +6,7 @@ var UsersCurrentController = Ember.ObjectController.extend({
 
   isEditing          : false,
   isChangingPassword : false,
+  showEditPluginIcon : true,
 
   actions : {
 

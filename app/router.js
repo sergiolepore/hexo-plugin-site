@@ -22,17 +22,15 @@ Router.map(function() {
     path : '/login'
   });
 
-  this.resource('plugins', function() {
+  // this.resource('plugins', function() {
     // this.route('trending');
     // this.route('new');
     // this.route('updated');
     // this.route('popular');
-    this.route('add');
-  });
+    // this.route('add');
+  // });
 
-  this.resource('plugin', { path : '/plugin/:plugin_slug' }, function() {
-    this.route('edit');
-  });
+  this.route('plugin', { path : '/plugin/:plugin_slug' });
 
   this.resource('users', { path : 'devs' }, function() {
     this.route('new', { path : '/signup' });

@@ -1,1 +1,123 @@
-{{outlet}}
+<div class="row page-content">
+  <div class="col-lg-12">
+    <div class="row plugin-header plugin-section">
+      <div class="col-lg-12">
+        {{#if userCanEdit}}
+          {{#if isEditing}}
+            <button {{action 'cancel'}} class="btn btn-default">Cancel</button>
+            <button {{action 'save'}} class="btn btn-success">Save</button>
+          {{else}}
+            <button {{action 'edit'}} class="btn btn-primary">Edit</button>
+          {{/if}}
+        {{/if}}
+        {{#if isEditing}}
+            {{input name="name" value=name placeholder="Plugin Name" type="text" autofocus="" class="form-control"}}
+            <div class="help-block">
+              This is the only editable attribute. All other data is fetched via the npm registry.
+            </div>
+        {{else}}
+          <h1>
+            {{name}}
+          </h1>
+        {{/if}}
+        <span class="user-info">
+          by
+          {{#link-to 'users.user' user.username}}
+            {{user.username}}
+          {{/link-to}}
+        </span>
+        <p>
+          {{description}}
+        </p>
+      </div>
+    </div>
+
+    <div class="row plugin-details plugin-section">
+      <div class="col-lg-12">
+        <h2>Details</h2>
+      </div>
+      <div class="col-lg-4">
+        <ul class="meta">
+          <li>
+            <label>Version</label>
+            <span>{{lastVersion}}</span>
+          </li>
+          <li>
+            <label>Updated</label>
+            {{datetime-span datetime=lastModified}}
+          </li>
+          <li>
+            <label>Hexo Version</label>
+            <span>{{hexoVersionSupport}}</span>
+          </li>
+          <li>
+            <label>Installations</label>
+            <span>{{number-format installationCount '0a'}}</span>
+          </li>
+          <li>
+            <label>Package name</label>
+            <span>
+              <a {{bind-attr href="npmUrl"}} target="_blank">{{packageName}}</a>
+            </span>
+          </li>
+          {{#if repositoryUrl}}
+            <li>
+              <label>Repository URL</label>
+              <span>
+                <a {{bind-attr href="repositoryUrl"}} target="_blank">{{extract-hostname repositoryUrl}}</a>
+              </span>
+            </li>
+          {{/if}}
+          {{#if website}}
+            <li>
+              <label>Website</label>
+              <span>
+                <a {{bind-attr href="website"}} target="_blank">{{extract-hostname website}}</a>
+              </span>
+            </li>
+          {{/if}}
+          {{#if user.donationsUrl}}
+            <li>
+              <label>Donations</label>
+              <span>
+                <a {{bind-attr href="user.donationsUrl"}} target="_blank">{{extract-hostname user.donationsUrl}}</a>
+              </span>
+            </li>
+          {{/if}}
+        </ul>
+      </div>
+
+      <div class="col-lg-8">
+        {{!-- installations graph --}}
+      </div>
+    </div>
+
+    <div class="row plugin-installation plugin-section">
+      <div class="col-lg-12">
+        <h2>Installation</h2>
+        {{partial "plugin-installation"}}
+      </div>
+    </div>
+
+    <div class="row plugin-keywords plugin-section">
+      <div class="col-lg-12">
+        <h2>Keywords</h2>
+        {{#each keyword in keywords}}
+          {{#link-to "keyword" keyword.name}}
+            {{keyword.name}}
+          {{/link-to}}
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="row plugin-readme plugin-section">
+      <div class="col-lg-12">
+        <h2>Readme</h2>
+        <div class="readme-contents">
+          {{showdown-addon readme}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

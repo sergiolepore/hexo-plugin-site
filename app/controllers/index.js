@@ -1,12 +1,12 @@
-import Ember from 'ember';
+import Ember  from 'ember';
 import moment from 'moment';
-import ENV from 'hexo-plugin-site/config/environment';
+import ENV    from 'hexo-plugin-site/config/environment';
 
 var IndexController = Ember.ObjectController.extend({
-  trending: [],
-  newest:   [],
-  updated:  [],
-  popular:  [],
+  trending : [],
+  newest   : [],
+  updated  : [],
+  popular  : [],
 
   actions: {
 
@@ -42,12 +42,7 @@ var IndexController = Ember.ObjectController.extend({
       //    - https://github.com/sergiolepore/hexo-plugin-site (Client / Ember-CLI)
       //    - https://github.com/sergiolepore/hexo-plugin-api  (Server / Sails.js)
       // --------------
-      var trendingUrl =
-        ENV.APP.apiHost +
-        '/' +
-        ENV.APP.apiNamespace +
-        '/plugins/trending'
-      ;
+      var trendingUrl = ENV.APP.apiBaseEndpoint + '/plugins/trending';
 
       Ember.$.getJSON(trendingUrl, trendingQuery).then(function(json) {
         var plugins = json.plugins.map(function(attrs) {
@@ -64,11 +59,11 @@ var IndexController = Ember.ObjectController.extend({
      * pushed to the `newest` property and the index template will show them.
      */
     loadNewest: function() {
-      var _this = this;
       var newQuery = {
         sort: 'createdAt DESC',
         limit: 10
       };
+      var _this = this;
 
       this.store.find('plugin', newQuery).then(function(foundRecords) {
         _this.get('newest').pushObjects(foundRecords.toArray());
@@ -81,11 +76,11 @@ var IndexController = Ember.ObjectController.extend({
      * pushed to the `updated` property and the index template will show them.
      */
     loadUpdated: function() {
-      var _this = this;
       var updatedQuery = {
         sort: 'lastModified DESC',
         limit: 10
       };
+      var _this = this;
 
       this.store.find('plugin', updatedQuery).then(function(foundRecords) {
         _this.get('updated').pushObjects(foundRecords.toArray());
@@ -98,7 +93,6 @@ var IndexController = Ember.ObjectController.extend({
      * pushed to the `popular` property and the index template will show them.
      */
     loadPopular: function() {
-      var _this = this;
       var popularQuery = {
         where: {
           '>': {
@@ -108,6 +102,7 @@ var IndexController = Ember.ObjectController.extend({
         sort: 'installationCount DESC',
         limit: 10
       };
+      var _this = this;
 
       this.store.find('plugin', popularQuery).then(function(foundRecords) {
         _this.get('popular').pushObjects(foundRecords.toArray());

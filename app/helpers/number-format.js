@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember   from 'ember';
 import numeral from 'numeral';
 
 function numberFormat(value, options) {

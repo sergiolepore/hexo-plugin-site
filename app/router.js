@@ -11,15 +11,15 @@ Router.map(function() {
   this.route('docs');
   this.route('news');
   this.route('search', {
-    path : '/search/:query'
+    path: '/search/:query'
   });
 
   this.route('keyword', {
-    path : '/keyword/:keyword_id'
+    path: '/keyword/:keyword_id'
   });
 
   this.route('sessions', {
-    path : '/login'
+    path: '/login'
   });
 
   // this.resource('plugins', function() {
@@ -30,21 +30,21 @@ Router.map(function() {
     // this.route('add');
   // });
 
-  this.route('plugin', { path : '/plugin/:plugin_slug' });
+  this.route('plugin', { path: '/plugin/:plugin_slug' });
 
-  this.resource('users', { path : 'devs' }, function() {
-    this.route('new', { path : '/signup' });
+  this.resource('users', { path: 'devs' }, function() {
+    this.route('new', { path: '/signup' });
 
     this.route('user', {
-      path : '/dev/:user_slug'
+      path: '/dev/:user_slug'
     });
 
     this.route('current', {
-      path : '/me'
+      path: '/me'
     });
 
     this.route('resetpassword', {
-      path : '/resetpassword/:token'
+      path: '/resetpassword/:token'
     });
   });
 });

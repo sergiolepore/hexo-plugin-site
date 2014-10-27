@@ -1,17 +1,17 @@
 import Ember from 'ember';
-import _ from 'underscore';
+import _     from 'underscore';
 
 var SearchController = Ember.Controller.extend({
-  query: '',
-  plugins: [],
-  users: [],
-  keywords: [],
+  query     : '',
+  plugins   : [],
+  users     : [],
+  keywords  : [],
   // noMore... are wordkarounds for the sails blueprints
   // not returning a "meta" key with the total records.
   // These properties will change if a find returns zero records.
-  noMorePlugins: false,
-  noMoreUsers: false,
-  noMoreKeywords: false,
+  noMorePlugins   : false,
+  noMoreUsers     : false,
+  noMoreKeywords  : false,
 
   isPluginsNotEmpty: function() {
     return this.get('plugins').length > 0;
@@ -40,21 +40,21 @@ var SearchController = Ember.Controller.extend({
 
   canLoadMorePlugins: function() {
     var isPluginsNotEmpty = this.get('isPluginsNotEmpty');
-    var noMorePlugins = this.get('noMorePlugins');
+    var noMorePlugins     = this.get('noMorePlugins');
 
     return isPluginsNotEmpty && !noMorePlugins;
   }.property('noMorePlugins', 'isPluginsNotEmpty'),
 
   canLoadMoreUsers: function() {
     var isUsersNotEmpty = this.get('isUsersNotEmpty');
-    var noMoreUsers = this.get('noMoreUsers');
+    var noMoreUsers     = this.get('noMoreUsers');
 
     return isUsersNotEmpty && !noMoreUsers;
   }.property('noMoreUsers', 'isUsersNotEmpty'),
 
   canLoadMoreKeywords: function() {
     var isKeywordsNotEmpty = this.get('isKeywordsNotEmpty');
-    var noMoreKeywords = this.get('noMoreKeywords');
+    var noMoreKeywords     = this.get('noMoreKeywords');
 
     return isKeywordsNotEmpty && !noMoreKeywords;
   }.property('noMoreKeywords', 'isKeywordsNotEmpty'),

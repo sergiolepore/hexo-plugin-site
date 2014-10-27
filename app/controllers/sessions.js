@@ -1,13 +1,13 @@
-import Ember from 'ember';
-import ENV from 'hexo-plugin-site/config/environment';
+import Ember   from 'ember';
+import ENV     from 'hexo-plugin-site/config/environment';
 import swalert from 'sweetAlert';
 
 var SessionsController = Ember.Controller.extend({
-  email:                null,
-  password:             null,
-  token:                localStorage.getItem('access_token'),
-  currentUser:          localStorage.getItem('auth_user'),
-  attemptedTransition:  null,
+  email               : null,
+  password            : null,
+  token               : localStorage.getItem('access_token'),
+  currentUser         : localStorage.getItem('auth_user'),
+  attemptedTransition : null,
 
   isTokenChanged: function() {
     var token = this.get('token');
@@ -78,7 +78,7 @@ var SessionsController = Ember.Controller.extend({
       });
     },
 
-    sendResetPasswordEmail : function() {
+    sendResetPasswordEmail: function() {
       var apiUrl = ENV.APP.apiBaseEndpoint + '/sessions/resetPasswordEmail';
       var email  = this.get('email');
 
@@ -101,10 +101,10 @@ var SessionsController = Ember.Controller.extend({
 
     reset: function() {
       this.setProperties({
-        email:        null,
-        password:     null,
-        token:        null,
-        currentUser:  null
+        email       : null,
+        password    : null,
+        token       : null,
+        currentUser : null
       });
 
       Ember.$.ajaxSetup({

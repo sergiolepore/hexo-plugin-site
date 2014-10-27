@@ -18,7 +18,7 @@ var Plugin = DS.Model.extend({
   installationCount : DS.attr('number'),
   hpmmeta           : DS.hasOneFragment('hpmmeta'),
 
-  hexoVersionSupport : function() {
+  hexoVersionSupport: function() {
     var hpmMeta     = this.get('hpmmeta');
     var hexoVersion = null;
 
@@ -28,7 +28,8 @@ var Plugin = DS.Model.extend({
 
     return hexoVersion? hexoVersion : 'N/D';
   }.property('hpmmeta'),
-  npmUrl : function() {
+
+  npmUrl: function() {
     var packageName = this.get('packageName');
 
     return 'https://npmjs.org/package/%packageName%'.replace('%packageName%', packageName);

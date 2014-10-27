@@ -6,7 +6,7 @@ var DatetimeSpanComponent = Ember.Component.extend({
   datetime : '',
   classes  : '',
 
-  datetimeISO : function() {
+  datetimeISO: function() {
     var datetime = this.get('datetime');
 
     return moment(datetime).toISOString();

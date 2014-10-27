@@ -8,20 +8,20 @@ var UsersCurrentController = Ember.ObjectController.extend({
   isChangingPassword : false,
   showEditPluginIcon : true,
 
-  actions : {
+  actions: {
 
     // change to edit mode
-    edit : function() {
+    edit: function() {
       this.set('isEditing', true);
     },
 
-    cancel : function() {
+    cancel: function() {
       this.get('model').rollback();
       this.set('isEditing', false);
     },
 
     // persist changes and exit edit mode
-    save : function() {
+    save: function() {
       var user  = this.get('model');
       var _this = this;
 
@@ -36,11 +36,11 @@ var UsersCurrentController = Ember.ObjectController.extend({
       });
     },
 
-    changePassword : function() {
+    changePassword: function() {
       this.set('isChangingPassword', true);
     },
 
-    cancelPassword : function() {
+    cancelPassword: function() {
       this.setProperties({
         isChangingPassword : false,
         oldPassword        : null,
@@ -48,7 +48,7 @@ var UsersCurrentController = Ember.ObjectController.extend({
       });
     },
 
-    savePassword : function() {
+    savePassword: function() {
       var passwordData = this.getProperties('oldPassword', 'newPassword');
       var apiUrl       = '%baseurl%/users/password'.replace('%baseurl%', ENV.APP.apiBaseEndpoint);
       var _this        = this;
@@ -80,11 +80,11 @@ var UsersCurrentController = Ember.ObjectController.extend({
     },
 
     // permanently deletes the user account
-    delete : function() {
+    delete: function() {
       // TODO: implement delete account
     },
 
-    reset : function() {
+    reset: function() {
       this.get('model').rollback();
 
       this.setProperties({

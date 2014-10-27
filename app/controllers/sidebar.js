@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 var SidebarController = Ember.Controller.extend({
-  needs: ['application', 'search'],
-  searchQuery: '',
+  needs       : ['application', 'search'],
+  searchQuery : '',
 
   searchQueryChanges: function() {
     var searchQuery = this.get('controllers.search.query');

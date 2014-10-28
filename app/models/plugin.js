@@ -16,18 +16,18 @@ var Plugin = DS.Model.extend({
   versions          : DS.hasMany('pluginversion', { async: true }),
   installations     : DS.hasMany('plugininstallation', { async: true }),
   installationCount : DS.attr('number'),
-  hpmmeta           : DS.hasOneFragment('hpmmeta'),
+  hpmmetadata       : DS.hasOneFragment('hpmmetadata'),
 
   hexoVersionSupport: function() {
-    var hpmMeta     = this.get('hpmmeta');
+    var hpmMetadata = this.get('hpmmetadata');
     var hexoVersion = null;
 
-    if (!Ember.isEmpty(hpmMeta)) {
-      hexoVersion = hpmMeta.get('hexoVersion');
+    if (!Ember.isEmpty(hpmMetadata)) {
+      hexoVersion = hpmMetadata.get('hexoVersion');
     }
 
     return hexoVersion? hexoVersion : 'N/D';
-  }.property('hpmmeta'),
+  }.property('hpmmetadata'),
 
   npmUrl: function() {
     var packageName = this.get('packageName');

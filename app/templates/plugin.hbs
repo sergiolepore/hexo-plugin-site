@@ -103,7 +103,7 @@
       <div class="col-lg-12">
         <h2>Keywords</h2>
         {{#each keyword in keywords}}
-          {{#link-to "keyword" keyword.name}}
+          {{#link-to "search" keyword.name (query-params type="keyword")}}
             {{keyword.name}}
           {{/link-to}}
         {{/each}}

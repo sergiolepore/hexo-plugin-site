@@ -2,10 +2,11 @@ import Ember from 'ember';
 import _     from 'underscore';
 
 var SearchController = Ember.Controller.extend({
-  query     : '',
-  plugins   : [],
-  users     : [],
-  keywords  : [],
+  queryParams : ['type'], // query params from the ember route
+  query       : '',
+  plugins     : [],
+  users       : [],
+  keywords    : [],
   // noMore... are wordkarounds for the sails blueprints
   // not returning a "meta" key with the total records.
   // These properties will change if a find returns zero records.

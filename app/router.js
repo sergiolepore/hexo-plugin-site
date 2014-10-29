@@ -10,18 +10,16 @@ Router.map(function() {
   this.route('installation');
   this.route('docs');
   this.route('news');
+
   this.route('search', {
     path: '/search/:query'
-  });
-
-  this.route('keyword', {
-    path: '/keyword/:keyword_id'
   });
 
   this.route('sessions', {
     path: '/login'
   });
 
+  // TODO: To be implemented in a future release
   // this.resource('plugins', function() {
     // this.route('trending');
     // this.route('new');

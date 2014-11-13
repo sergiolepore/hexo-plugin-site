@@ -4,8 +4,10 @@ import {
 } from 'ember-qunit';
 
 moduleFor('controller:users/resetpassword', 'UsersResetpasswordController', {
-  // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
+  needs: [
+    'ember-validations@validator:local/length',
+    'ember-validations@validator:local/confirmation',
+  ]
 });
 
 // Replace this with your real tests.

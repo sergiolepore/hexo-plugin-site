@@ -4,8 +4,12 @@ import {
 } from 'ember-qunit';
 
 moduleForModel('plugin', 'Plugin', {
-  // Specify the other units that are required for this test.
-  needs: []
+  needs: [
+    'model:user',
+    'model:keyword',
+    'model:pluginversion',
+    'model:plugininstallation'
+  ]
 });
 
 test('it exists', function() {

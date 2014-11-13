@@ -4,8 +4,7 @@ import {
 } from 'ember-qunit';
 
 moduleFor('controller:sidebar', 'SidebarController', {
-  // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
+  needs: ['controller:application', 'controller:search']
 });
 
 // Replace this with your real tests.

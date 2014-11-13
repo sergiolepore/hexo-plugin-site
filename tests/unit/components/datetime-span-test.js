@@ -4,8 +4,7 @@ import {
 } from 'ember-qunit';
 
 moduleForComponent('datetime-span', 'DatetimeSpanComponent', {
-  // specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar']
+  needs: ['component:datetime-span', 'helper:format-date-ago']
 });
 
 test('it renders', function() {

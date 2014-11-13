@@ -4,8 +4,11 @@ import {
 } from 'ember-qunit';
 
 moduleFor('controller:users/new', 'UsersNewController', {
-  // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
+  needs: [
+    'ember-validations@validator:local/length',
+    'ember-validations@validator:local/format',
+    'validator:local/property',
+  ]
 });
 
 // Replace this with your real tests.

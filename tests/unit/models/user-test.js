@@ -4,7 +4,12 @@ import {
 } from 'ember-qunit';
 
 moduleForModel('user', 'User', {
-  needs: ['model:plugin']
+  needs: [
+    'model:plugin',
+    'model:keyword',
+    'model:pluginversion',
+    'model:plugininstallation'
+  ]
 });
 
 test('it exists', function() {

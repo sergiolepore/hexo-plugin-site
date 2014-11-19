@@ -5,7 +5,12 @@ import {
 
 moduleForModel('plugininstallation', 'PluginInstallation', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: [
+    'model:plugin',
+    'model:user',
+    'model:keyword',
+    'model:pluginversion'
+  ]
 });
 
 test('it exists', function() {

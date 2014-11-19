@@ -26,5 +26,10 @@
     "offline": "~0.7.11",
     "sweetalert": "~0.2.0",
     "ember-data.model-fragments": "~0.2.1"
+  },
+  "resolutions": {
+    "jquery": "^1.11.1",
+    "ember-data": "1.0.0-beta.10",
+    "bootstrap": "~3.3.0"
   }
 }

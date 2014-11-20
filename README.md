@@ -1,10 +1,10 @@
 # Hexo-plugin-site
 
-[![Build Status](https://travis-ci.org/sergiolepore/hexo-plugin-site.png?branch=master)](https://travis-ci.org/sergiolepore/hexo-plugin-site)
+[![Build Status][travis-image]][travis-url] | [![Gittip][gittip-image]][gittip-url]
 
 # !! THIS IS A WORK-IN-PROGRESS !!
 
-This README outlines the details of collaborating on this Ember application.
+This README outlines the details of collaborating on this Ember-CLI application.
 
 A short introduction of this app could easily go here.
 
@@ -17,8 +17,8 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* change into the new directory
+* `git clone <repository-url>`
+* `cd` into the new directory
 * `npm install`
 * `bower install`
 
@@ -41,10 +41,6 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
-
-Specify what it takes to deploy your app.
-
 ## Further Reading / Useful Links
 
 * ember: http://emberjs.com/
@@ -52,3 +48,9 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
+[travis-url]: https://travis-ci.org/sergiolepore/hexo-plugin-site
+[travis-image]: https://travis-ci.org/sergiolepore/hexo-plugin-site.png?branch=master
+
+[gittip-url]: https://www.gittip.com/sergiolepore/
+[gittip-image]: http://img.shields.io/gittip/sergiolepore.svg?style=flat

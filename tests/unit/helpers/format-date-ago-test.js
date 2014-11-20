@@ -1,11 +1,14 @@
 import {
   formatDateAgo
 } from 'hexo-plugin-site/helpers/format-date-ago';
+import moment from 'moment';
 
 module('FormatDateAgoHelper');
 
-// Replace this with your real tests.
-test('it works', function() {
-  var result = formatDateAgo(42);
-  ok(result);
+test('it returns a date as "[x] [time-unit] ago"', function() {
+  var sevenDaysAgo = moment().subtract(7, 'days').toISOString();
+  var target       = '7 days ago';
+  var result       = formatDateAgo(sevenDaysAgo);
+
+  ok(result === target);
 });

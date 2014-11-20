@@ -4,8 +4,10 @@ import {
 
 module('ExtractHostnameHelper');
 
-// Replace this with your real tests.
-test('it works', function() {
-  var result = extractHostname(42);
-  ok(result);
+test('it extracts the hostname of a given URL', function() {
+  var testUrl        = 'https://www.npmjs.org/~sergiolepore';
+  var targetHostname = 'www.npmjs.org';
+  var result         = extractHostname(testUrl);
+
+  ok(result === targetHostname);
 });

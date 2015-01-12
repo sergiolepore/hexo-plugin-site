@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 var UserRoute = Ember.Route.extend({
 
-  model: function(params) {
+  model(params) {
     var userSlug = params.user_slug;
 
     this.set('titleToken', userSlug);
@@ -11,12 +11,12 @@ var UserRoute = Ember.Route.extend({
       where: {
         username: userSlug
       }
-    }).then(function(records) {
+    }).then(records => {
       return records.get('firstObject');
     });
   },
 
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     controller.set('model', model);
   }
 

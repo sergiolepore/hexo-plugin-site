@@ -12,7 +12,8 @@ import Base from 'ember-validations/validators/base';
 // If you need a more complex property lookup, implement a
 // computed property and use it with isTrue or isFalse.
 var PropertyValidator = Base.extend({
-  call: function() {
+
+  call() {
     var checkTrue  = this.options.isTrue !== undefined;
     var checkFalse = this.options.isFalse !== undefined;
 
@@ -28,6 +29,7 @@ var PropertyValidator = Base.extend({
       }
     }
   }
+
 });
 
 export default PropertyValidator;

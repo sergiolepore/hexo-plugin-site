@@ -21,7 +21,7 @@ var User = DS.Model.extend({
     // if it's not an url and not empty
     // it's the profile username
     if (!urlRegexp.test(github) && !Ember.isEmpty(github)) {
-      github = 'https://github.com/%username%'.replace('%username%', github);
+      github = `https://github.com/${github}`;
     }
 
     return github;
@@ -33,7 +33,7 @@ var User = DS.Model.extend({
     // if it's not an url and not empty
     // it's the profile username
     if (!urlRegexp.test(npm) && !Ember.isEmpty(npm)) {
-      npm = 'https://www.npmjs.org/~%username%'.replace('%username%', npm);
+      npm = `https://www.npmjs.org/~${npm}`;
     }
 
     return npm;

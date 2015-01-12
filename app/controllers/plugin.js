@@ -18,24 +18,24 @@ var PluginController = Ember.ObjectController.extend({
   }.property('controllers.application.isAuthenticated', 'controllers.application.currentUser', 'user'),
 
   actions: {
-    edit: function() {
+
+    edit() {
       this.set('isEditing', true);
     },
 
-    save: function() {
-      var user  = this.get('model');
-      var _this = this;
+    save() {
+      var user = this.get('model');
 
-      user.save().then(function() {
-        _this.set('isEditing', false);
-      }, function(reason) {
+      user.save().then(() => {
+        this.set('isEditing', false);
+      }, reason => {
         console.log(reason);
 
         swalert('Oops!', 'There was an error while persisting the changes :(', 'error');
       });
     },
 
-    cancel: function() {
+    cancel() {
       this.get('model').rollback();
       this.set('isEditing', false);
     }

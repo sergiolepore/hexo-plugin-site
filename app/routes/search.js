@@ -4,7 +4,7 @@ var SearchRoute = Ember.Route.extend({
   titleToken  : 'Search',
   query       : '',
 
-  model: function(params) {
+  model(params) {
     var query      = params.query;
     var controller = this.controllerFor('search');
 
@@ -16,7 +16,7 @@ var SearchRoute = Ember.Route.extend({
     controller.send('searchKeywords');
   },
 
-  deactivate: function() {
+  deactivate() {
     // when leaving the search route, ensure no garbage is kept in the controller
     this.controllerFor('search').send('reset');
   },

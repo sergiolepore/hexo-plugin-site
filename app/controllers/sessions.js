@@ -35,10 +35,10 @@ var SessionsController = Ember.Controller.extend({
   },
 
   actions: {
-    loginUser: function() {
+
+    loginUser() {
       var attemptedTransition = this.get('attemptedTransition');
       var loginData           = this.getProperties('email', 'password');
-      var _this               = this;
 
       // clear the login form
       this.setProperties({
@@ -48,12 +48,12 @@ var SessionsController = Ember.Controller.extend({
       var loginUrl     = ENV.APP.apiBaseEndpoint + '/sessions/authenticate';
       var loginPromise = Ember.$.post(loginUrl, loginData);
 
-      loginPromise.then(function(loginResponse) {
+      loginPromise.then(loginResponse => {
         var token  = loginResponse.token;
         var userId = loginResponse.user;
 
-        _this.set('currentUser', userId);
-        _this.set('token', token);
+        this.set('currentUser', userId);
+        this.set('token', token);
 
         Ember.$.ajaxSetup({
           headers: {
@@ -63,11 +63,11 @@ var SessionsController = Ember.Controller.extend({
 
         if (attemptedTransition) {
           attemptedTransition.retry();
-          _this.set('attemptedTransition', null);
+          this.set('attemptedTransition', null);
         } else {
-          _this.transitionToRoute('users.current');
+          this.transitionToRoute('users.current');
         }
-      }, function(reason) {
+      }, reason => {
         console.log(reason);
 
         if (reason.status === 401 || reason.status === 403) {
@@ -78,7 +78,7 @@ var SessionsController = Ember.Controller.extend({
       });
     },
 
-    sendResetPasswordEmail: function() {
+    sendResetPasswordEmail() {
       var apiUrl = ENV.APP.apiBaseEndpoint + '/sessions/resetPasswordEmail';
       var email  = this.get('email');
 
@@ -87,7 +87,7 @@ var SessionsController = Ember.Controller.extend({
       } else {
         Ember.$.get(apiUrl, { email: email }).then(function() {
           swalert('Great!', 'An email was sent to you with instructions to reset your password', 'success');
-        }, function(reason) {
+        }, reason => {
           console.log(reason);
 
           if (reason.status === 404) {
@@ -99,7 +99,7 @@ var SessionsController = Ember.Controller.extend({
       }
     },
 
-    reset: function() {
+    reset() {
       this.setProperties({
         email       : null,
         password    : null,

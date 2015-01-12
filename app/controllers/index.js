@@ -15,10 +15,9 @@ var IndexController = Ember.ObjectController.extend({
      * When the AJAX call receives a response, the `trending plugins` will be
      * pushed to the `trending` property and the index template will show them.
      */
-    loadTrending: function() {
-      var _this = this;
-      var m = moment();
-      var today = m.toISOString();
+    loadTrending() {
+      var m       = moment();
+      var today   = m.toISOString();
       var daysAgo = m.subtract(15, 'days').toISOString();
 
       // trending in the last 15 days
@@ -44,12 +43,12 @@ var IndexController = Ember.ObjectController.extend({
       // --------------
       var trendingUrl = ENV.APP.apiBaseEndpoint + '/plugins/trending';
 
-      Ember.$.getJSON(trendingUrl, trendingQuery).then(function(json) {
-        var plugins = json.plugins.map(function(attrs) {
-          return _this.store.push('plugin', attrs);
+      Ember.$.getJSON(trendingUrl, trendingQuery).then(json => {
+        var plugins = json.plugins.map(attrs => {
+          return this.store.push('plugin', attrs);
         });
 
-        _this.get('trending').pushObjects(plugins);
+        this.get('trending').pushObjects(plugins);
       });
     },
 
@@ -58,15 +57,14 @@ var IndexController = Ember.ObjectController.extend({
      * When the AJAX call receives a response, the `newest plugins` will be
      * pushed to the `newest` property and the index template will show them.
      */
-    loadNewest: function() {
+    loadNewest() {
       var newQuery = {
         sort: 'createdAt DESC',
         limit: 10
       };
-      var _this = this;
 
-      this.store.find('plugin', newQuery).then(function(foundRecords) {
-        _this.get('newest').pushObjects(foundRecords.toArray());
+      this.store.find('plugin', newQuery).then(foundRecords => {
+        this.get('newest').pushObjects(foundRecords.toArray());
       });
     },
 
@@ -75,15 +73,14 @@ var IndexController = Ember.ObjectController.extend({
      * When the AJAX call receives a response, the `updated plugins` will be
      * pushed to the `updated` property and the index template will show them.
      */
-    loadUpdated: function() {
+    loadUpdated() {
       var updatedQuery = {
         sort: 'lastModified DESC',
         limit: 10
       };
-      var _this = this;
 
-      this.store.find('plugin', updatedQuery).then(function(foundRecords) {
-        _this.get('updated').pushObjects(foundRecords.toArray());
+      this.store.find('plugin', updatedQuery).then(foundRecords => {
+        this.get('updated').pushObjects(foundRecords.toArray());
       });
     },
 
@@ -92,7 +89,7 @@ var IndexController = Ember.ObjectController.extend({
      * When the AJAX call receives a response, the `popular plugins` will be
      * pushed to the `popular` property and the index template will show them.
      */
-    loadPopular: function() {
+    loadPopular() {
       var popularQuery = {
         where: {
           '>': {
@@ -102,17 +99,16 @@ var IndexController = Ember.ObjectController.extend({
         sort: 'installationCount DESC',
         limit: 10
       };
-      var _this = this;
 
-      this.store.find('plugin', popularQuery).then(function(foundRecords) {
-        _this.get('popular').pushObjects(foundRecords.toArray());
+      this.store.find('plugin', popularQuery).then(foundRecords => {
+        this.get('popular').pushObjects(foundRecords.toArray());
       });
     },
 
     /**
      * Clears the controller properties
      */
-    reset: function() {
+    reset() {
       this.get('trending').clear();
       this.get('newest').clear();
       this.get('updated').clear();

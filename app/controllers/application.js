@@ -35,7 +35,7 @@ var ApplicationController = Ember.Controller.extend({
     return semver.gte(version, '1.0.0');
   }.property(),
 
-  init: function() {
+  init() {
     var styleTitle    = 'background: #eee; color: #0e83cd; font-size: 1.2em; font-weight: bold; font-family: monospace;';
     var styleText     = 'background: #eee; color: #444; font-size: 1.2em; font-family: monospace;';
     var styleTextDomo = 'background: #eee; color: #a00; font-size: 1.2em; font-weight: bold; font-family: monospace;';

@@ -4,13 +4,13 @@ import AuthenticatedRoute from 'hexo-plugin-site/routes/authenticated';
 var UsersCurrentRoute = AuthenticatedRoute.extend({
   titleToken: 'My Profile',
 
-  model: function() {
+  model() {
     var currentUserId = this.controllerFor('application').get('currentUser');
 
     return this.store.find('user', currentUserId);
   },
 
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     controller.set('model', model);
   }
 

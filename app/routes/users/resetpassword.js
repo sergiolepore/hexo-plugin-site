@@ -4,13 +4,13 @@ var ResetPasswordRoute = Ember.Route.extend({
 
   titleToken: 'Reset Password',
 
-  model: function(params) {
+  model(params) {
     var token = params.token;
 
     this.controllerFor('users.resetpassword').set('token', token);
   },
 
-  deactivate: function (){
+  deactivate(){
     this.controllerFor('users.resetpassword').send('reset');
   },
 

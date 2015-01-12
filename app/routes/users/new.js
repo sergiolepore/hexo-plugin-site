@@ -5,7 +5,7 @@ var UsersNewRoute = Ember.Route.extend({
 
   // if there's a logged in user, redirect to another
   // page.
-  beforeModel: function() {
+  beforeModel() {
     var isAuthenticated = this.controllerFor('application').get('isAuthenticated');
 
     if (isAuthenticated) {
@@ -13,18 +13,18 @@ var UsersNewRoute = Ember.Route.extend({
     }
   },
 
-  model: function() {
+  model() {
     return this.store.createRecord('user');
   },
 
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     this._super(controller, model);
 
     controller.send('reset');
     controller.set('model', model);
   },
 
-  deactivate: function() {
+  deactivate() {
     this.controllerFor('users.new').send('reset');
   }
 

@@ -10,9 +10,8 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
   hasErrors       : false,
 
   usernameChanged: function() {
-    var _this    = this;
     var username = this.get('username');
-    var apiUrl   = ENV.APP.apiBaseEndpoint + '/users';
+    var apiUrl   = `${ENV.APP.apiBaseEndpoint}/users`;
 
     if (Ember.isEmpty(username) || username.length < 3) {
       return;
@@ -35,15 +34,14 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
       where: {
         username: username
       }
-    }).then(function(result) {
-      _this.set('usernameExists', !Ember.isEmpty(result.users));
+    }).then(result => {
+      this.set('usernameExists', !Ember.isEmpty(result.users));
     });
   }.observes('username'),
 
   emailChanged: function() {
-    var _this  = this;
     var email  = this.get('email');
-    var apiUrl = ENV.APP.apiBaseEndpoint + '/users';
+    var apiUrl = `${ENV.APP.apiBaseEndpoint}/users`;
 
     if (Ember.isEmpty(email) || email.length < 3) {
       return;
@@ -66,8 +64,8 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
       where: {
         email: email
       }
-    }).then(function(result) {
-      _this.set('emailExists', !Ember.isEmpty(result.users));
+    }).then(result => {
+      this.set('emailExists', !Ember.isEmpty(result.users));
     });
   }.observes('email'),
 
@@ -143,38 +141,38 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
   },
 
   actions: {
-    save: function() {
+
+    save() {
       var user  = this.get('model');
-      var _this = this;
 
       this.validate().then(function() {
         // user is valid
         return user.save();
-      }).then(function() {
+      }).then(() => {
         // user successfully saved
         swalert({
           title : 'Great!',
           text  : 'Your account has been created',
           type  : 'success'
-        }, function() {
+        }, () => {
           // when user closes the alert
           // show him the login page
-          _this.transitionToRoute('sessions');
+          this.transitionToRoute('sessions');
         });
-      }).catch(function(e) {
+      }).catch(reason => {
         // invalid data or something is broken...
-        console.log(e);
+        console.log(reason);
 
         // if passed all validations, it must be something else :(
-        if (_this.get('isValid')) {
+        if (this.get('isValid')) {
           swalert('Oops :(', 'This is embarrassing, but there was an unknown error while trying to create your account. Try again later.', 'error');
         } else {
-          _this.set('hasErrors', true);
+          this.set('hasErrors', true);
         }
       });
     },
 
-    reset: function() {
+    reset() {
       this.setProperties({
         usernameExists : false,
         emailExists    : false,

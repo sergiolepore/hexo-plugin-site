@@ -3,7 +3,7 @@ import Ember from 'ember';
 var IndexRoute = Ember.Route.extend({
   title: 'hpm.js - The Hexo Plugin Manager',
 
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     this._super(controller, model);
 
     // controller.send('loadTrending');
@@ -12,11 +12,11 @@ var IndexRoute = Ember.Route.extend({
     controller.send('loadPopular');
   },
 
-  activate: function() {
+  activate() {
     this.controllerFor('index').send('reset');
   },
 
-  deactivate: function() {
+  deactivate() {
     this.controllerFor('index').send('reset');
   }
 

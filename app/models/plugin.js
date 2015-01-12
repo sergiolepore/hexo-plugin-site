@@ -32,7 +32,7 @@ var Plugin = DS.Model.extend({
   npmUrl: function() {
     var packageName = this.get('packageName');
 
-    return 'https://npmjs.org/package/%packageName%'.replace('%packageName%', packageName);
+    return `https://npmjs.org/package/${packageName}`;
   }.property('packageName'),
 
 });

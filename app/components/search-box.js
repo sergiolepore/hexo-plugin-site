@@ -7,7 +7,7 @@ var SearchBoxComponent = Ember.Component.extend({
     /**
      * Action called when the search button is clicked
      */
-    fireSearch: function() {
+    fireSearch() {
       // use the clean string (without extra whitespaces)
       var query = this.get('query');
 
@@ -17,7 +17,7 @@ var SearchBoxComponent = Ember.Component.extend({
     }
   },
 
-  keyPress: function(e) {
+  keyPress(e) {
     if (e.which === 13) { // if ENTER was pressed
       this.send('fireSearch'); // call fireSearch action
     }

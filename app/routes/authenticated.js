@@ -9,7 +9,7 @@ var AuthenticatedRoute = Ember.Route.extend({
 
   // verify that there's a session token.
   // if not, redirect to the login route.
-  beforeModel: function(transition) {
+  beforeModel(transition) {
     var token = this.controllerFor('sessions').get('token');
 
     if (Ember.isEmpty(token)) {
@@ -19,7 +19,7 @@ var AuthenticatedRoute = Ember.Route.extend({
 
   // redirect to the login route and store the attempted transition so we can
   // move to it later.
-  redirectToLogin: function(transition) {
+  redirectToLogin(transition) {
     this.controllerFor('sessions').set('attemptedTransition', transition);
 
     return this.transitionTo('sessions');
@@ -27,7 +27,7 @@ var AuthenticatedRoute = Ember.Route.extend({
 
   actions: {
 
-    error: function(reason, transition) {
+    error(reason, transition) {
       if (reason.status === 401 || reason.status === 403) {
         this.redirectToLogin(transition);
       } else {

@@ -61,7 +61,8 @@ var SearchController = Ember.Controller.extend({
   }.property('noMoreKeywords', 'isKeywordsNotEmpty'),
 
   actions: {
-    searchPlugins: function() {
+
+    searchPlugins() {
       var searchQuery = this.get('query');
       var queryParams = [];
 
@@ -78,13 +79,13 @@ var SearchController = Ember.Controller.extend({
       queryParams.push({ readme: { like: searchQuery }});
 
       this.send('searchModels', {
-        propertyName: 'plugins',
-        modelName: 'plugin',
-        queryParams: { or: queryParams }
+        propertyName : 'plugins',
+        modelName    : 'plugin',
+        queryParams  : { or: queryParams }
       });
     },
 
-    searchUsers: function() {
+    searchUsers() {
       var searchQuery = this.get('query');
       var queryParams = [];
 
@@ -97,13 +98,13 @@ var SearchController = Ember.Controller.extend({
       queryParams.push({ username: { like: searchQuery }});
 
       this.send('searchModels', {
-        propertyName: 'users',
-        modelName: 'user',
-        queryParams: { or: queryParams }
+        propertyName : 'users',
+        modelName    : 'user',
+        queryParams  : { or: queryParams }
       });
     },
 
-    searchKeywords: function() {
+    searchKeywords() {
       var searchQuery = this.get('query');
       var queryParams = [];
 
@@ -116,30 +117,29 @@ var SearchController = Ember.Controller.extend({
       queryParams.push({ name: { like: searchQuery }});
 
       this.send('searchModels', {
-        propertyName: 'keywords',
-        modelName: 'keyword',
-        queryParams: { or: queryParams }
+        propertyName : 'keywords',
+        modelName    : 'keyword',
+        queryParams  : { or: queryParams }
       });
     },
 
-    searchModels: function(args) {
+    searchModels(args) {
       var propertyName = args.propertyName;
       var modelName = args.modelName;
       var queryParams = args.queryParams;
       var skip = this.get(propertyName).length;
-      var _this = this;
 
       this.store.find(modelName, {
         where: queryParams,
         skip: skip
-      }).then(function(foundRecords) {
+      }).then(foundRecords => {
         var foundRecordsArr = foundRecords.toArray();
 
         if (foundRecordsArr.length) {
-          _this.get(propertyName).pushObjects(foundRecords.toArray());
+          this.get(propertyName).pushObjects(foundRecords.toArray());
         } else {
           var noMoreProp = 'noMore' + _.str.capitalize(propertyName);
-          _this.set(noMoreProp, true);
+          this.set(noMoreProp, true);
         }
       });
     },
@@ -150,7 +150,7 @@ var SearchController = Ember.Controller.extend({
      * they will be notified and the reset will propagate. Useful to clear the
      * query string when leaving the search route.
      */
-    reset: function() {
+    reset() {
       this.set('query', '');
     },
 

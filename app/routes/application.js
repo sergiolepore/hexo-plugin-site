@@ -13,7 +13,7 @@ var ApplicationRoute = Ember.Route.extend({
      * with the query as a parameter.
      * In the search route is where the magic happens...
      */
-    searchTransition: function(query) {
+    searchTransition(query) {
       // remove all extra whitespaces
       query = query.replace(/\s+/g, ' ').trim();
 
@@ -22,7 +22,7 @@ var ApplicationRoute = Ember.Route.extend({
       }
     },
 
-    logout: function() {
+    logout() {
       this.controllerFor('sessions').send('reset');
       this.transitionTo('sessions');
     }

@@ -3,15 +3,14 @@ import Ember from 'ember';
 var PluginRoute = Ember.Route.extend({
   titleToken: '',
 
-  model: function(params) {
+  model(params) {
     var pluginSlug = params.plugin_slug;
-    var _this = this;
 
     return this.store.find('plugin', {
       where: {
         packageName: pluginSlug
       }
-    }).then(function(records) {
+    }).then(records => {
       var plugin = records.get('firstObject');
 
       if (!plugin) {
@@ -19,7 +18,7 @@ var PluginRoute = Ember.Route.extend({
         return plugin;
       }
 
-      _this.set('titleToken', plugin.get('name'));
+      this.set('titleToken', plugin.get('name'));
 
       return plugin;
     });

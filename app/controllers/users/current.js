@@ -11,36 +11,35 @@ var UsersCurrentController = Ember.ObjectController.extend({
   actions: {
 
     // change to edit mode
-    edit: function() {
+    edit() {
       this.set('isEditing', true);
     },
 
-    cancel: function() {
+    cancel() {
       this.get('model').rollback();
       this.set('isEditing', false);
     },
 
     // persist changes and exit edit mode
-    save: function() {
-      var user  = this.get('model');
-      var _this = this;
+    save() {
+      var user = this.get('model');
 
-      user.save().then(function() {
+      user.save().then(() => {
         // user is valid
-        _this.set('isEditing', false);
-      }, function(e) {
+        this.set('isEditing', false);
+      }, reason => {
         // invalid data or something is broken...
-        console.log(e);
+        console.log(reason);
 
         swalert('Oops :(', 'This is embarrassing, but there was an unknown error while trying to save the data. Try again later.', 'error');
       });
     },
 
-    changePassword: function() {
+    changePassword() {
       this.set('isChangingPassword', true);
     },
 
-    cancelPassword: function() {
+    cancelPassword() {
       this.setProperties({
         isChangingPassword : false,
         oldPassword        : null,
@@ -48,25 +47,24 @@ var UsersCurrentController = Ember.ObjectController.extend({
       });
     },
 
-    savePassword: function() {
+    savePassword() {
       var passwordData = this.getProperties('oldPassword', 'newPassword');
-      var apiUrl       = '%baseurl%/users/password'.replace('%baseurl%', ENV.APP.apiBaseEndpoint);
-      var _this        = this;
+      var apiUrl       = `${ENV.APP.apiBaseEndpoint}/users/password`;
 
       Ember.$.ajax({
         url  : apiUrl,
         data : passwordData,
         type : 'PUT'
-      }).then(function() {
+      }).then(() => {
         // everything ok
         swalert('Awesome!', 'Your password has been successfully updated.', 'success');
 
-        _this.setProperties({
+        this.setProperties({
           isChangingPassword : false,
           oldPassword        : null,
           newPassword        : null,
         });
-      }, function(reason) {
+      }, reason => {
         console.log(reason);
 
         if (reason.status === 401 || reason.status === 403) {
@@ -80,11 +78,11 @@ var UsersCurrentController = Ember.ObjectController.extend({
     },
 
     // permanently deletes the user account
-    delete: function() {
+    delete() {
       // TODO: implement delete account
     },
 
-    reset: function() {
+    reset() {
       this.get('model').rollback();
 
       this.setProperties({

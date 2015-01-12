@@ -3,15 +3,15 @@ import swalert          from 'sweetAlert';
 import EmberValidations from 'ember-validations';
 import ENV              from 'hexo-plugin-site/config/environment';
 
-var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
+export default Ember.ObjectController.extend(EmberValidations.Mixin, {
 
   emailExists     : false,
   usernameExists  : false,
   hasErrors       : false,
 
   usernameChanged: function() {
-    var username = this.get('username');
-    var apiUrl   = `${ENV.APP.apiBaseEndpoint}/users`;
+    let username = this.get('username');
+    let apiUrl   = `${ENV.APP.apiBaseEndpoint}/users`;
 
     if (Ember.isEmpty(username) || username.length < 3) {
       return;
@@ -40,8 +40,8 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
   }.observes('username'),
 
   emailChanged: function() {
-    var email  = this.get('email');
-    var apiUrl = `${ENV.APP.apiBaseEndpoint}/users`;
+    let email  = this.get('email');
+    let apiUrl = `${ENV.APP.apiBaseEndpoint}/users`;
 
     if (Ember.isEmpty(email) || email.length < 3) {
       return;
@@ -75,8 +75,8 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
   }.observes('model.username', 'model.email', 'model.password'),
 
   usernameHasErrors: function() {
-    var hasErrors = this.get('hasErrors');
-    var errors    = this.get('errors');
+    let hasErrors = this.get('hasErrors');
+    let errors    = this.get('errors');
 
     if (hasErrors && errors.username.length) {
       return true;
@@ -86,8 +86,8 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
   }.property('hasErrors'),
 
   emailHasErrors: function() {
-    var hasErrors = this.get('hasErrors');
-    var errors    = this.get('errors');
+    let hasErrors = this.get('hasErrors');
+    let errors    = this.get('errors');
 
     if (hasErrors && errors.email.length) {
       return true;
@@ -97,8 +97,8 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
   }.property('hasErrors'),
 
   passwordHasErrors: function() {
-    var hasErrors = this.get('hasErrors');
-    var errors    = this.get('errors');
+    let hasErrors = this.get('hasErrors');
+    let errors    = this.get('errors');
 
     if (hasErrors && errors.password.length) {
       return true;
@@ -143,7 +143,7 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
   actions: {
 
     save() {
-      var user  = this.get('model');
+      let user = this.get('model');
 
       this.validate().then(function() {
         // user is valid
@@ -182,5 +182,3 @@ var UsersNewController = Ember.ObjectController.extend(EmberValidations.Mixin, {
     }
   }
 });
-
-export default UsersNewController;

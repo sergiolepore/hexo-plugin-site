@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 function extractHostname(value) {
-  var urlRegexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-  var urlDecomposerRegex = /^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/;
+  let urlRegexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+  let urlDecomposerRegex = /^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/;
 
   if (!/^https?:\/\//i.test(value)) {
     value = 'http://' + value;
@@ -18,7 +18,7 @@ function extractHostname(value) {
   // [3] - Uri
   // [4] - Parameters
   // [5] - Hash
-  var urlParts = value.match(urlDecomposerRegex);
+  let urlParts = value.match(urlDecomposerRegex);
 
   return urlParts[2];
 }

@@ -3,7 +3,7 @@ import Ember from 'ember';
 
 var urlRegexp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
 
-var User = DS.Model.extend({
+export default DS.Model.extend({
   username        : DS.attr('string'),
   email           : DS.attr('string'),
   password        : DS.attr('string'),
@@ -16,7 +16,7 @@ var User = DS.Model.extend({
   updatedAt       : DS.attr('date'),
 
   githubProfileUrl: function() {
-    var github = this.get('githubProfile');
+    let github = this.get('githubProfile');
 
     // if it's not an url and not empty
     // it's the profile username
@@ -28,7 +28,7 @@ var User = DS.Model.extend({
   }.property('githubProfile'),
 
   npmProfileUrl: function() {
-    var npm = this.get('npmProfile');
+    let npm = this.get('npmProfile');
 
     // if it's not an url and not empty
     // it's the profile username
@@ -44,5 +44,3 @@ var User = DS.Model.extend({
   }.property('plugins.[]'),
 
 });
-
-export default User;

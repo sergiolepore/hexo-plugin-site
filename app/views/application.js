@@ -1,10 +1,12 @@
 import Ember from 'ember';
 
-var ApplicationView = Ember.View.extend({
-  afterRenderEvent: function() {
+export default Ember.View.extend({
+
+  afterRenderEvent() {
     this.$(window).bind("load resize", function() {
-      var topOffset = 50;
-      var width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
+      let topOffset = 50;
+      let width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
+
       if (width < 768) {
         this.$('div.navbar-collapse').addClass('collapse');
         topOffset = 100; // 2-row-menu
@@ -12,8 +14,9 @@ var ApplicationView = Ember.View.extend({
         this.$('div.navbar-collapse').removeClass('collapse');
       }
 
-      var height = (this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height;
+      let height = (this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height;
       height = height - topOffset;
+
       if (height < 1) {
         height = 1;
       }
@@ -25,5 +28,3 @@ var ApplicationView = Ember.View.extend({
   },
 
 });
-
-export default ApplicationView;

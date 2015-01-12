@@ -1,9 +1,9 @@
 import Ember from 'ember';
 
-var UserRoute = Ember.Route.extend({
+export default Ember.Route.extend({
 
   model(params) {
-    var userSlug = params.user_slug;
+    let userSlug = params.user_slug;
 
     this.set('titleToken', userSlug);
 
@@ -21,5 +21,3 @@ var UserRoute = Ember.Route.extend({
   }
 
 });
-
-export default UserRoute;

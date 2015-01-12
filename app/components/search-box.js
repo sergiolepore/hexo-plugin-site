@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var SearchBoxComponent = Ember.Component.extend({
+export default Ember.Component.extend({
   query: '',
 
   actions: {
@@ -9,7 +9,7 @@ var SearchBoxComponent = Ember.Component.extend({
      */
     fireSearch() {
       // use the clean string (without extra whitespaces)
-      var query = this.get('query');
+      let query = this.get('query');
 
       // call the main action
       // {{search-box action="anAction"}}
@@ -23,5 +23,3 @@ var SearchBoxComponent = Ember.Component.extend({
     }
   }
 });
-
-export default SearchBoxComponent;

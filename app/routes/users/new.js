@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
-var UsersNewRoute = Ember.Route.extend({
+export default Ember.Route.extend({
   titleToken: 'Signup',
 
   // if there's a logged in user, redirect to another
   // page.
   beforeModel() {
-    var isAuthenticated = this.controllerFor('application').get('isAuthenticated');
+    let isAuthenticated = this.controllerFor('application').get('isAuthenticated');
 
     if (isAuthenticated) {
       return this.transitionTo('index');
@@ -29,5 +29,3 @@ var UsersNewRoute = Ember.Route.extend({
   }
 
 });
-
-export default UsersNewRoute;

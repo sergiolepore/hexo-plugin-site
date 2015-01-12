@@ -2,7 +2,7 @@ import Ember  from 'ember';
 import ENV    from 'hexo-plugin-site/config/environment';
 import semver from 'semver';
 
-var ApplicationController = Ember.Controller.extend({
+export default Ember.Controller.extend({
   needs: ['sessions'],
 
   currentUser: function() {
@@ -30,15 +30,15 @@ var ApplicationController = Ember.Controller.extend({
   }.property('currentRouteName'),
 
   isStable: function() {
-    var version = this.get('version');
+    let version = this.get('version');
 
     return semver.gte(version, '1.0.0');
   }.property(),
 
   init() {
-    var styleTitle    = 'background: #eee; color: #0e83cd; font-size: 1.2em; font-weight: bold; font-family: monospace;';
-    var styleText     = 'background: #eee; color: #444; font-size: 1.2em; font-family: monospace;';
-    var styleTextDomo = 'background: #eee; color: #a00; font-size: 1.2em; font-weight: bold; font-family: monospace;';
+    let styleTitle    = 'background: #eee; color: #0e83cd; font-size: 1.2em; font-weight: bold; font-family: monospace;';
+    let styleText     = 'background: #eee; color: #444; font-size: 1.2em; font-family: monospace;';
+    let styleTextDomo = 'background: #eee; color: #a00; font-size: 1.2em; font-weight: bold; font-family: monospace;';
 
     console.log('%c Hey there! :)                                          ',  styleTitle);
     console.log('%c If you are seeing this, why don\'t you join us?         ', styleText);
@@ -48,5 +48,3 @@ var ApplicationController = Ember.Controller.extend({
     console.log('%c \\|°▿▿▿▿°|/                                             ', styleTextDomo);
   }
 });
-
-export default ApplicationController;

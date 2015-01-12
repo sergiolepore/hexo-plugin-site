@@ -3,7 +3,7 @@ import swalert          from 'sweetAlert';
 import EmberValidations from 'ember-validations';
 import ENV              from 'hexo-plugin-site/config/environment';
 
-var ResetPasswordController = Ember.Controller.extend(EmberValidations.Mixin, {
+export default Ember.Controller.extend(EmberValidations.Mixin, {
 
   password              : null,
   passwordConfirmation  : null,
@@ -11,8 +11,8 @@ var ResetPasswordController = Ember.Controller.extend(EmberValidations.Mixin, {
 
 
   passwordHasErrors: function() {
-    var hasErrors = this.get('hasErrors');
-    var errors    = this.get('errors');
+    let hasErrors = this.get('hasErrors');
+    let errors    = this.get('errors');
 
     if (hasErrors && errors.password.length) {
       return true;
@@ -22,8 +22,8 @@ var ResetPasswordController = Ember.Controller.extend(EmberValidations.Mixin, {
   }.property('hasErrors'),
 
   passwordConfirmationHasErrors: function() {
-    var hasErrors = this.get('hasErrors');
-    var errors    = this.get('errors');
+    let hasErrors = this.get('hasErrors');
+    let errors    = this.get('errors');
 
     if (hasErrors && errors.passwordConfirmation.length) {
       return true;
@@ -45,8 +45,8 @@ var ResetPasswordController = Ember.Controller.extend(EmberValidations.Mixin, {
 
     save() {
       this.validate().then(() => {
-        var data   = this.getProperties('token', 'password');
-        var apiUrl = `${ENV.APP.apiBaseEndpoint}/users/resetPassword`;
+        let data   = this.getProperties('token', 'password');
+        let apiUrl = `${ENV.APP.apiBaseEndpoint}/users/resetPassword`;
 
         return Ember.$.ajax({
           url  : apiUrl,
@@ -88,5 +88,3 @@ var ResetPasswordController = Ember.Controller.extend(EmberValidations.Mixin, {
   }
 
 });
-
-export default ResetPasswordController;

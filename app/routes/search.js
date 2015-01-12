@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
-var SearchRoute = Ember.Route.extend({
+export default Ember.Route.extend({
   titleToken  : 'Search',
   query       : '',
 
   model(params) {
-    var query      = params.query;
-    var controller = this.controllerFor('search');
+    let query      = params.query;
+    let controller = this.controllerFor('search');
 
     this.set('titleToken', query + ' - Search');
     controller.set('query', query);
@@ -21,5 +21,3 @@ var SearchRoute = Ember.Route.extend({
     this.controllerFor('search').send('reset');
   },
 });
-
-export default SearchRoute;

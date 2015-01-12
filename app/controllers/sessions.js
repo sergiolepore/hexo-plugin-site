@@ -2,7 +2,7 @@ import Ember   from 'ember';
 import ENV     from 'hexo-plugin-site/config/environment';
 import swalert from 'sweetAlert';
 
-var SessionsController = Ember.Controller.extend({
+export default Ember.Controller.extend({
   email               : null,
   password            : null,
   token               : localStorage.getItem('access_token'),
@@ -10,7 +10,7 @@ var SessionsController = Ember.Controller.extend({
   attemptedTransition : null,
 
   isTokenChanged: function() {
-    var token = this.get('token');
+    let token = this.get('token');
 
     if (!Ember.isEmpty(token)) {
       localStorage.setItem('access_token', token);
@@ -23,7 +23,7 @@ var SessionsController = Ember.Controller.extend({
 
   init: function() {
     this._super();
-    var token = localStorage.getItem('access_token');
+    let token = localStorage.getItem('access_token');
 
     if (!Ember.isEmpty(token)) {
       Ember.$.ajaxSetup({
@@ -37,20 +37,20 @@ var SessionsController = Ember.Controller.extend({
   actions: {
 
     loginUser() {
-      var attemptedTransition = this.get('attemptedTransition');
-      var loginData           = this.getProperties('email', 'password');
+      let attemptedTransition = this.get('attemptedTransition');
+      let loginData           = this.getProperties('email', 'password');
 
       // clear the login form
       this.setProperties({
         password: null
       });
 
-      var loginUrl     = ENV.APP.apiBaseEndpoint + '/sessions/authenticate';
-      var loginPromise = Ember.$.post(loginUrl, loginData);
+      let loginUrl     = ENV.APP.apiBaseEndpoint + '/sessions/authenticate';
+      let loginPromise = Ember.$.post(loginUrl, loginData);
 
       loginPromise.then(loginResponse => {
-        var token  = loginResponse.token;
-        var userId = loginResponse.user;
+        let token  = loginResponse.token;
+        let userId = loginResponse.user;
 
         this.set('currentUser', userId);
         this.set('token', token);
@@ -79,8 +79,8 @@ var SessionsController = Ember.Controller.extend({
     },
 
     sendResetPasswordEmail() {
-      var apiUrl = ENV.APP.apiBaseEndpoint + '/sessions/resetPasswordEmail';
-      var email  = this.get('email');
+      let apiUrl = ENV.APP.apiBaseEndpoint + '/sessions/resetPasswordEmail';
+      let email  = this.get('email');
 
       if (!email) {
         swalert('Oops!', 'Enter your email in the login form, then click this link again', 'error');
@@ -115,5 +115,3 @@ var SessionsController = Ember.Controller.extend({
     }
   }
 });
-
-export default SessionsController;

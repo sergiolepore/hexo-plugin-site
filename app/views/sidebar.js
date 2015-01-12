@@ -1,10 +1,9 @@
 import Ember from 'ember';
 
-var SidebarView = Ember.View.extend({
-  afterRenderEvent: function() {
+export default Ember.View.extend({
+
+  afterRenderEvent() {
     this.$('#side-menu').metisMenu();
   },
 
 });
-
-export default SidebarView;

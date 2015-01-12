@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
-var ApplicationRoute = Ember.Route.extend({
-  title: function(tokens) {
+export default Ember.Route.extend({
+  title(tokens) {
     return tokens.join(' - ') + ' | Hexo Plugin Manager';
   },
 
@@ -28,5 +28,3 @@ var ApplicationRoute = Ember.Route.extend({
     }
   }
 });
-
-export default ApplicationRoute;

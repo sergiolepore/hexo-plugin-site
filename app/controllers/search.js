@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import _     from 'underscore';
 
-var SearchController = Ember.Controller.extend({
+export default Ember.Controller.extend({
   queryParams : ['type'], // query params from the ember route
   query       : '',
   plugins     : [],
@@ -40,22 +40,22 @@ var SearchController = Ember.Controller.extend({
   }.observes('query'),
 
   canLoadMorePlugins: function() {
-    var isPluginsNotEmpty = this.get('isPluginsNotEmpty');
-    var noMorePlugins     = this.get('noMorePlugins');
+    let isPluginsNotEmpty = this.get('isPluginsNotEmpty');
+    let noMorePlugins     = this.get('noMorePlugins');
 
     return isPluginsNotEmpty && !noMorePlugins;
   }.property('noMorePlugins', 'isPluginsNotEmpty'),
 
   canLoadMoreUsers: function() {
-    var isUsersNotEmpty = this.get('isUsersNotEmpty');
-    var noMoreUsers     = this.get('noMoreUsers');
+    let isUsersNotEmpty = this.get('isUsersNotEmpty');
+    let noMoreUsers     = this.get('noMoreUsers');
 
     return isUsersNotEmpty && !noMoreUsers;
   }.property('noMoreUsers', 'isUsersNotEmpty'),
 
   canLoadMoreKeywords: function() {
-    var isKeywordsNotEmpty = this.get('isKeywordsNotEmpty');
-    var noMoreKeywords     = this.get('noMoreKeywords');
+    let isKeywordsNotEmpty = this.get('isKeywordsNotEmpty');
+    let noMoreKeywords     = this.get('noMoreKeywords');
 
     return isKeywordsNotEmpty && !noMoreKeywords;
   }.property('noMoreKeywords', 'isKeywordsNotEmpty'),
@@ -63,8 +63,8 @@ var SearchController = Ember.Controller.extend({
   actions: {
 
     searchPlugins() {
-      var searchQuery = this.get('query');
-      var queryParams = [];
+      let searchQuery = this.get('query');
+      let queryParams = [];
 
       if (searchQuery.length < 3) {
         return;
@@ -86,8 +86,8 @@ var SearchController = Ember.Controller.extend({
     },
 
     searchUsers() {
-      var searchQuery = this.get('query');
-      var queryParams = [];
+      let searchQuery = this.get('query');
+      let queryParams = [];
 
       if (searchQuery.length < 3) {
         return;
@@ -105,8 +105,8 @@ var SearchController = Ember.Controller.extend({
     },
 
     searchKeywords() {
-      var searchQuery = this.get('query');
-      var queryParams = [];
+      let searchQuery = this.get('query');
+      let queryParams = [];
 
       if (searchQuery.length < 3) {
         return;
@@ -124,21 +124,21 @@ var SearchController = Ember.Controller.extend({
     },
 
     searchModels(args) {
-      var propertyName = args.propertyName;
-      var modelName = args.modelName;
-      var queryParams = args.queryParams;
-      var skip = this.get(propertyName).length;
+      let propertyName = args.propertyName;
+      let modelName = args.modelName;
+      let queryParams = args.queryParams;
+      let skip = this.get(propertyName).length;
 
       this.store.find(modelName, {
         where: queryParams,
         skip: skip
       }).then(foundRecords => {
-        var foundRecordsArr = foundRecords.toArray();
+        let foundRecordsArr = foundRecords.toArray();
 
         if (foundRecordsArr.length) {
           this.get(propertyName).pushObjects(foundRecords.toArray());
         } else {
-          var noMoreProp = 'noMore' + _.str.capitalize(propertyName);
+          let noMoreProp = 'noMore' + _.str.capitalize(propertyName);
           this.set(noMoreProp, true);
         }
       });
@@ -156,5 +156,3 @@ var SearchController = Ember.Controller.extend({
 
   }
 });
-
-export default SearchController;

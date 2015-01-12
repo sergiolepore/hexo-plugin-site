@@ -2,7 +2,7 @@ import Ember  from 'ember';
 import moment from 'moment';
 import ENV    from 'hexo-plugin-site/config/environment';
 
-var IndexController = Ember.ObjectController.extend({
+export default Ember.ObjectController.extend({
   trending : [],
   newest   : [],
   updated  : [],
@@ -16,12 +16,12 @@ var IndexController = Ember.ObjectController.extend({
      * pushed to the `trending` property and the index template will show them.
      */
     loadTrending() {
-      var m       = moment();
-      var today   = m.toISOString();
-      var daysAgo = m.subtract(15, 'days').toISOString();
+      let m       = moment();
+      let today   = m.toISOString();
+      let daysAgo = m.subtract(15, 'days').toISOString();
 
       // trending in the last 15 days
-      var trendingQuery = {
+      let trendingQuery = {
         where: {
           '>=': {
             createdAt: daysAgo
@@ -41,10 +41,10 @@ var IndexController = Ember.ObjectController.extend({
       //    - https://github.com/sergiolepore/hexo-plugin-site (Client / Ember-CLI)
       //    - https://github.com/sergiolepore/hexo-plugin-api  (Server / Sails.js)
       // --------------
-      var trendingUrl = ENV.APP.apiBaseEndpoint + '/plugins/trending';
+      let trendingUrl = ENV.APP.apiBaseEndpoint + '/plugins/trending';
 
       Ember.$.getJSON(trendingUrl, trendingQuery).then(json => {
-        var plugins = json.plugins.map(attrs => {
+        let plugins = json.plugins.map(attrs => {
           return this.store.push('plugin', attrs);
         });
 
@@ -58,7 +58,7 @@ var IndexController = Ember.ObjectController.extend({
      * pushed to the `newest` property and the index template will show them.
      */
     loadNewest() {
-      var newQuery = {
+      let newQuery = {
         sort: 'createdAt DESC',
         limit: 10
       };
@@ -74,7 +74,7 @@ var IndexController = Ember.ObjectController.extend({
      * pushed to the `updated` property and the index template will show them.
      */
     loadUpdated() {
-      var updatedQuery = {
+      let updatedQuery = {
         sort: 'lastModified DESC',
         limit: 10
       };
@@ -90,7 +90,7 @@ var IndexController = Ember.ObjectController.extend({
      * pushed to the `popular` property and the index template will show them.
      */
     loadPopular() {
-      var popularQuery = {
+      let popularQuery = {
         where: {
           '>': {
             installationCount: 0
@@ -117,5 +117,3 @@ var IndexController = Ember.ObjectController.extend({
   },
 
 });
-
-export default IndexController;

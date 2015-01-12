@@ -1,7 +1,7 @@
 import DS     from 'ember-data';
 import Ember  from 'ember';
 
-var Plugin = DS.Model.extend({
+export default DS.Model.extend({
   name              : DS.attr('string'),
   packageName       : DS.attr('string'),
   description       : DS.attr('string'),
@@ -19,8 +19,8 @@ var Plugin = DS.Model.extend({
   hpmmetadata       : DS.hasOneFragment('hpmmetadata'),
 
   hexoVersionSupport: function() {
-    var hpmMetadata = this.get('hpmmetadata');
-    var hexoVersion = null;
+    let hpmMetadata = this.get('hpmmetadata');
+    let hexoVersion = null;
 
     if (!Ember.isEmpty(hpmMetadata)) {
       hexoVersion = hpmMetadata.get('hexoVersion');
@@ -30,11 +30,9 @@ var Plugin = DS.Model.extend({
   }.property('hpmmetadata'),
 
   npmUrl: function() {
-    var packageName = this.get('packageName');
+    let packageName = this.get('packageName');
 
     return `https://npmjs.org/package/${packageName}`;
   }.property('packageName'),
 
 });
-
-export default Plugin;

@@ -11,11 +11,11 @@ import Base from 'ember-validations/validators/base';
 // You have to specify isTrue OR isFalse, not both.
 // If you need a more complex property lookup, implement a
 // computed property and use it with isTrue or isFalse.
-var PropertyValidator = Base.extend({
+export default Base.extend({
 
   call() {
-    var checkTrue  = this.options.isTrue !== undefined;
-    var checkFalse = this.options.isFalse !== undefined;
+    let checkTrue  = this.options.isTrue !== undefined;
+    let checkFalse = this.options.isFalse !== undefined;
 
     if (checkTrue) {
       // if the property for TRUE returns false, error
@@ -31,5 +31,3 @@ var PropertyValidator = Base.extend({
   }
 
 });
-
-export default PropertyValidator;

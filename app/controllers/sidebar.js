@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
-var SidebarController = Ember.Controller.extend({
+export default Ember.Controller.extend({
   needs       : ['application', 'search'],
   searchQuery : '',
 
   searchQueryChanges: function() {
-    var searchQuery = this.get('controllers.search.query');
+    let searchQuery = this.get('controllers.search.query');
     this.set('searchQuery', searchQuery);
   }.observes('controllers.search.query'),
 
@@ -18,5 +18,3 @@ var SidebarController = Ember.Controller.extend({
   }.property('controllers.application.isNotIndex'),
 
 });
-
-export default SidebarController;

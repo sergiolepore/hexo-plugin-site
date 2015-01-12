@@ -2,7 +2,7 @@ import Ember   from 'ember';
 import swalert from 'sweetAlert';
 import ENV     from 'hexo-plugin-site/config/environment';
 
-var UsersCurrentController = Ember.ObjectController.extend({
+export default Ember.ObjectController.extend({
 
   isEditing          : false,
   isChangingPassword : false,
@@ -22,7 +22,7 @@ var UsersCurrentController = Ember.ObjectController.extend({
 
     // persist changes and exit edit mode
     save() {
-      var user = this.get('model');
+      let user = this.get('model');
 
       user.save().then(() => {
         // user is valid
@@ -48,8 +48,8 @@ var UsersCurrentController = Ember.ObjectController.extend({
     },
 
     savePassword() {
-      var passwordData = this.getProperties('oldPassword', 'newPassword');
-      var apiUrl       = `${ENV.APP.apiBaseEndpoint}/users/password`;
+      let passwordData = this.getProperties('oldPassword', 'newPassword');
+      let apiUrl       = `${ENV.APP.apiBaseEndpoint}/users/password`;
 
       Ember.$.ajax({
         url  : apiUrl,
@@ -93,5 +93,3 @@ var UsersCurrentController = Ember.ObjectController.extend({
 
   }
 });
-
-export default UsersCurrentController;

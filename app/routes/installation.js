@@ -1,7 +1,5 @@
 import Ember from 'ember';
 
-var InstallationRoute = Ember.Route.extend({
+export default Ember.Route.extend({
   titleToken: 'Installation'
 });
-
-export default InstallationRoute;

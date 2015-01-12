@@ -1,13 +1,13 @@
 import Ember from 'ember';
 
-var SessionsRoute = Ember.Route.extend({
+export default Ember.Route.extend({
 
   titleToken: 'Login',
 
   // check if the user is already logged in, to prevent showing him the login
   // template.
   beforeModel() {
-    var token = this.controllerFor('sessions').get('token');
+    let token = this.controllerFor('sessions').get('token');
 
     if (!Ember.isEmpty(token)) {
       this.transitionTo('users.current');
@@ -21,5 +21,3 @@ var SessionsRoute = Ember.Route.extend({
   }
 
 });
-
-export default SessionsRoute;

@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var IndexRoute = Ember.Route.extend({
+export default Ember.Route.extend({
   title: 'hpm.js - The Hexo Plugin Manager',
 
   setupController(controller, model) {
@@ -21,5 +21,3 @@ var IndexRoute = Ember.Route.extend({
   }
 
 });
-
-export default IndexRoute;

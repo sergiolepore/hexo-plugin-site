@@ -1,7 +1,5 @@
 import Ember from 'ember';
 
-var DocsRoute = Ember.Route.extend({
+export default Ember.Route.extend({
   titleToken: 'Docs'
 });
-
-export default DocsRoute;

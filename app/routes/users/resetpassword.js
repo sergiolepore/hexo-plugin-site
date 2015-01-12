@@ -1,12 +1,11 @@
 import Ember from 'ember';
 
-var ResetPasswordRoute = Ember.Route.extend({
+export default Ember.Route.extend({
 
   titleToken: 'Reset Password',
 
   model(params) {
-    var token = params.token;
-
+    let token = params.token;
     this.controllerFor('users.resetpassword').set('token', token);
   },
 
@@ -15,5 +14,3 @@ var ResetPasswordRoute = Ember.Route.extend({
   },
 
 });
-
-export default ResetPasswordRoute;

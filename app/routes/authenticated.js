@@ -5,12 +5,12 @@ import swalert from 'sweetAlert';
  * This is the basic route to handle all routes that needs authentication.
  * If there's a route that needs previous auth, it will need to extend this one.
  */
-var AuthenticatedRoute = Ember.Route.extend({
+export default Ember.Route.extend({
 
   // verify that there's a session token.
   // if not, redirect to the login route.
   beforeModel(transition) {
-    var token = this.controllerFor('sessions').get('token');
+    let token = this.controllerFor('sessions').get('token');
 
     if (Ember.isEmpty(token)) {
       return this.redirectToLogin(transition);
@@ -38,5 +38,3 @@ var AuthenticatedRoute = Ember.Route.extend({
   }
 
 });
-
-export default AuthenticatedRoute;

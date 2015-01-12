@@ -5,9 +5,7 @@ import Ember from 'ember';
 // otherwise it will look for `hpmmetadatum` model
 Ember.Inflector.inflector.uncountable('hpmmetadata');
 
-var HpmMetadata = DS.ModelFragment.extend({
+export default DS.ModelFragment.extend({
   token        : DS.attr('string'),
   hexoVersion  : DS.attr('string')
 });
-
-export default HpmMetadata;

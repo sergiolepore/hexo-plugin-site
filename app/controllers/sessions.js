@@ -1,3 +1,5 @@
+/* global localStorage:false*/
+
 import Ember   from 'ember';
 import ENV     from 'hexo-plugin-site/config/environment';
 import swalert from 'sweetAlert';

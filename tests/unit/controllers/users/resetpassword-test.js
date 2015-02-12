@@ -11,7 +11,8 @@ moduleFor('controller:users/resetpassword', 'UsersResetpasswordController', {
 });
 
 // Replace this with your real tests.
-test('it exists', function() {
-  var controller = this.subject();
-  ok(controller);
-});
+// TODO
+// test('it exists', function(assert) {
+//   var controller = this.subject();
+//   assert.ok(controller);
+// });

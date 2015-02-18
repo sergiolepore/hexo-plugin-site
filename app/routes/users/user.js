@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
     this.set('titleToken', userSlug);
 
-    return this.store.find('user', {
+    return this.store.findQuery('user', {
       where: {
         username: userSlug
       }

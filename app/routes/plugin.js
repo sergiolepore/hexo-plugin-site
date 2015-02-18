@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   model(params) {
     let pluginSlug = params.plugin_slug;
 
-    return this.store.find('plugin', {
+    return this.store.findQuery('plugin', {
       where: {
         packageName: pluginSlug
       }

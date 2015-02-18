@@ -129,7 +129,7 @@ export default Ember.Controller.extend({
       let queryParams = args.queryParams;
       let skip = this.get(propertyName).length;
 
-      this.store.find(modelName, {
+      this.store.findQuery(modelName, {
         where: queryParams,
         skip: skip
       }).then(foundRecords => {

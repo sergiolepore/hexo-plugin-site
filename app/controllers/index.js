@@ -63,7 +63,7 @@ export default Ember.ObjectController.extend({
         limit: 10
       };
 
-      this.store.find('plugin', newQuery).then(foundRecords => {
+      this.store.findQuery('plugin', newQuery).then(foundRecords => {
         this.get('newest').pushObjects(foundRecords.toArray());
       });
     },
@@ -79,7 +79,7 @@ export default Ember.ObjectController.extend({
         limit: 10
       };
 
-      this.store.find('plugin', updatedQuery).then(foundRecords => {
+      this.store.findQuery('plugin', updatedQuery).then(foundRecords => {
         this.get('updated').pushObjects(foundRecords.toArray());
       });
     },
@@ -100,7 +100,7 @@ export default Ember.ObjectController.extend({
         limit: 10
       };
 
-      this.store.find('plugin', popularQuery).then(foundRecords => {
+      this.store.findQuery('plugin', popularQuery).then(foundRecords => {
         this.get('popular').pushObjects(foundRecords.toArray());
       });
     },
